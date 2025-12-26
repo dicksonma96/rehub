@@ -1,13 +1,207 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0');
+
+
+* {
     box-sizing: border-box;
-    margin:0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
 }
 
-.row{
-    display:flex;
+.row {
+    display: flex;
+    align-items: center;
 }
 
-.col{
-    display:flex;
+.col {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+$max_width: 1440px;
+$accent-color: #F37521;
+$grey: #262626;
+$latte: #FCF6E6;
+
+body,
+html {
+    background-color: $grey;
+    color: white;
+}
+
+.latte {
+    color: $latte;
+}
+
+.orange {
+    color: $accent-color;
+}
+
+.cta_btn {
+    background-color: $accent-color;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: 1px solid $accent-color;
+
+    &:hover {
+        color: $accent-color;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.scroll_down {
+
+
+    .mouse {
+        border: solid 1px white;
+        border-radius: 999px;
+        width: 2rem;
+        height: 3rem;
+        opacity: 0.5;
+
+        .scroller {
+            border-radius: 999px;
+            width: 0.4rem;
+            height: 0.8rem;
+            background-color: white;
+            margin-top: 0.2rem;
+            animation: scrolldown 0.5s infinite;
+        }
+    }
+
+    span {
+        animation: scrolldown 0.5s infinite;
+        color: white;
+    }
+
+    @keyframes scrolldown {
+
+        0%,
+        100% {
+            transform: none;
+        }
+
+        50% {
+            transform: translateY(.3rem);
+        }
+    }
+}
+
+.container {
+    width: 100%;
+}
+
+.section_content {
+    width: 100%;
+    max-width: $max_width;
+    margin: auto;
+}
+
+.pad {
+    padding: 0 1rem;
+}
+
+section {
+    width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.header {
+    width: 100%;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    .logo {
+        width: 10rem;
+    }
+
+    nav {
+        margin-left: auto;
+
+        .link {
+            color: white;
+            font-size: 1rem;
+            width: 9rem;
+            text-align: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+    }
+
+    .cta_btn {
+        margin-left: 2rem;
+    }
+}
+
+.hero {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10rem;
+
+    .section_content {
+        z-index: 3;
+        height: 50rem;
+        position: relative;
+    }
+
+    .hero_text {
+        position: absolute;
+        color: white;
+        align-items: flex-start;
+        left: 10%;
+        top: 25%;
+
+        .text_box {
+            align-items: flex-start;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .scroll_down {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        translate: -50% 0;
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-height: 1000px;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+    }
+
+    &::after {
+        content: "";
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(transparent, $grey);
+        height: 100%;
+        width: 100%;
+    }
 }
