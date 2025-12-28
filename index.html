@@ -22,7 +22,9 @@
         <meta property="og:site_name" content="Re-Hub">
         <link rel="stylesheet" href="style.min.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+        <link href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+" rel="stylesheet">
     </head>
 
 <body>
@@ -57,8 +59,8 @@
                     </div>
                     <a class="cta_btn" href="#">About Re-Hub</a>
                 </div>
-                <div class="scroll_down col">
-                    <div class="mouse col">
+                <div class="scroll_down colc">
+                    <div class="mouse colc">
                         <div class="scroller"></div>
                     </div>
                     <span class="material-symbols-outlined">
@@ -69,8 +71,8 @@
             <img src="assets/img/banner.jpg" alt="">
         </section>
 
-        <section class="how_we_help col">
-            <div class="section_title col">
+        <section class="how_we_help colc">
+            <div class="section_title colc">
                 <h5>From Rehab to peak performance</h5>
                 <h1><span class="latte">HOW WE HELP YOU</span> <br> <span class="orange">MOVE BETTER</span></h1>
             </div>
@@ -125,8 +127,8 @@
 
         </section>
 
-        <section class="team col">
-            <div class="section_title col">
+        <section class="team colc">
+            <div class="section_title colc">
                 <h5>Meet the dedicated professionals behind Re-Hub</h5>
                 <h1><span class="latte">MEET</span><span class="orange">OUR TEAM</span></h1>
             </div>
@@ -171,15 +173,82 @@
         </section>
 
         <section class="reviews">
+            <div class="section_content col">
+                <div class="section_title col">
+                    <h5>What People Say About Us</h5>
+                    <h1><span class="latte">OUR</span><span class="orange"> REVIEWS</span></h1>
+                </div>
+            </div>
+            <div class="section_content review_header row">
+                <div class="stars row">
 
-            <ul id="google-reviews">
-                <p>Loading reviews...</p>
-            </ul>
+                </div>
+                <div><span id="rating">?</span> rating of <span id="total_rating">?</span> reviews</div>
+                <a href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,,"
+                    target="_blank" class="cta_btn" style="margin-right:2rem">Leave a Review</a>
+            </div>
+            <div class="section_content review_slider splide">
+                <div class="splide__track" style="margin-right:2rem">
+                    <ul class="splide__list">
+                        <!-- Reviews will be populated here -->
+                    </ul>
+                </div>
+
+            </div>
+            <div class="section_content review_loading colc">
+                <div class="loader"></div>
+            </div>
+            <div class="section_content review_error colc" style="display:none">
+                <span>↻ Try Again</span>
+                <p class="error_message"></p>
+            </div>
+        </section>
+
+        <section class="mid_banner">
+            <div class="section_content col">
+                <h1>
+                    <span class="latte">WHERE</span> <br>
+                    <span class="latte">RECOVERY MEETS</span> <br>
+                    <span class="orange">PERFORMANCE</span>
+                </h1>
+                <br>
+                <a href="#" class="cta_btn">About Re-Hub</a>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="section_content row">
+                <img src="assets/img/faq_banner.jpg" alt="">
+                <div class="faq_list col">
+                    <h1><span class="latte">FREQUENTLY</span> <span class="orange">ASKED QUESTIONS</span></h1>
+
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Do I need a doctor's referral to book for a physiotherapy session?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">No referral is needed. You can book directly with us — we’ll assess your
+                            condition and recommend the best plan based on your goals.</p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Do I need a doctor's referral to book for a physiotherapy session?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">No referral is needed. You can book directly with us — we’ll assess your
+                            condition and recommend the best plan based on your goals.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="footer col">
             <div class="section_content contact_footer">
-                <div class="text col">
+                <div class="text colc">
                     <h1>FOR FURTHER ENQUIRIES CONTACT <br>
                         <span class="orange" href="#"> hello.rehub@gmail.com</span>
                     </h1>
@@ -240,36 +309,151 @@
     AOS.init();
 </script>
 <script src="script.js"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
 <script>
-    // const help_card = document.querySelectorAll(".help_card");
+    const help_card = document.querySelectorAll(".help_card");
 
-    // help_card.forEach((card) => {
-    //     const video = card.querySelector("video");
-    //     card.addEventListener("mouseenter", () => {
-    //         video.currentTime = 0;
-    //         video.play();
-    //         video.style.opacity = "1";
-    //     });
+    help_card.forEach((card) => {
+        const video = card.querySelector("video");
+        if (video === null) return;
+        card.addEventListener("mouseenter", () => {
+            video.currentTime = 0;
+            video.play();
+            video.style.opacity = "1";
+        });
 
-    //     card.addEventListener("mouseleave", () => {
-    //         video.pause();
-    //         video.style.opacity = 0;
-    //     });
-    //     video.addEventListener('ended', (event) => {
-    //         video.style.opacity = 0;
-    //     });
-    // });
-
-
-
+        card.addEventListener("mouseleave", () => {
+            video.pause();
+            video.style.opacity = 0;
+        });
+        video.addEventListener('ended', (event) => {
+            video.style.opacity = 0;
+        });
+    });
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPJq6UqG1GKJZQiUjPKHqmypsw1elB_T0&libraries=places"></script>
+<script>
     // Replace with your actual Place ID
     const PLACE_ID = 'ChIJ0duttd5PzDERCi9bKg5glAc';
+    const API_KEY = "AIzaSyBPJq6UqG1GKJZQiUjPKHqmypsw1elB_T0"
 
-    async function initReviews() {
-        //   let res= await  fetch("https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ0duttd5PzDERCi9bKg5glAc&fields=reviews,name,rating,user_ratings_total&key=AIzaSyBPJq6UqG1GKJZQiUjPKHqmypsw1elB_T0");
+    const loading_div = document.querySelector(".review_loading");
+    const review_error = document.querySelector(".review_error");
+
+    let service;
+
+    function initMap() {
+        // Initialize service (using a dummy div as it doesn't need a visible map)
+        service = new google.maps.places.PlacesService(document.createElement('div'));
+        fetchReviews(); // Initial call
     }
-</script>
 
+    function fetchReviews() {
+        loading_div.style.display = "flex";
+        review_error.style.display = "none";
+
+        const request = {
+            placeId: PLACE_ID,
+            fields: ["reviews", "name", "rating", "user_ratings_total"]
+        }
+
+        service.getDetails(request, (place, status) => {
+            let errorMsg = "";
+            // 1. Check if the request was successful
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                if (place.reviews && place.reviews.length > 0) {
+                    // console.log("Reviews found:", place.reviews);
+                    populateReviews(place);
+                    return;
+                } else {
+                    console.warn("Place found, but it has no reviews.");
+                    errorMsg = "No reviews available for this place.";
+                }
+            }
+
+            // 2. Handle Specific Error Cases
+            else if (status === google.maps.places.PlacesServiceStatus.NOT_FOUND) {
+                console.error("Error: The Place ID provided does not exist.");
+                errorMsg = "The Place ID provided does not exist.";
+            }
+            else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
+                console.error("Error: You have exceeded your Google Maps API quota.");
+                errorMsg = "You have exceeded your Google Maps API quota.";
+            }
+            else if (status === google.maps.places.PlacesServiceStatus.REQUEST_DENIED) {
+                console.error("Error: API Key is invalid or Billing is not enabled.");
+                errorMsg = "API Key is invalid or Billing is not enabled.";
+            }
+            else {
+                console.error("An unknown error occurred with Google Places API:", status);
+                errorMsg = "An unknown error occurred while fetching reviews. Please try again later.";
+            }
+            populateError(errorMsg)
+        });
+
+    }
+
+    function populateError(message) {
+        loading_div.style.display = "none";
+        const error_message = document.querySelector(".review_error .error_message");
+        error_message.innerText = message;
+        review_error.style.display = "flex";
+        review_error.onclick = fetchReviews
+    }
+
+    function populateReviews(place) {
+        loading_div.style.display = "none";
+        const splide__list = document.querySelector(".splide__list");
+        const total_rating = document.getElementById("total_rating");
+        const rating = document.getElementById("rating");
+        const stars = document.querySelector(".review_header .stars");
+
+        total_rating.innerText = place.user_ratings_total;
+        rating.innerText = place.rating.toFixed(1);
+        stars.innerHTML = '★'.repeat(Math.floor(place.rating)) + '✰'.repeat(5 - Math.floor(place.rating));
+
+        splide__list.innerHTML = "";
+
+
+        place.reviews.forEach((review) => {
+            const review_card = document.createElement("li");
+            review_card.classList.add("review_card");
+            review_card.classList.add("col");
+            review_card.classList.add("splide__slide");
+
+
+            review_card.innerHTML = `
+                <div class="stars row">${'★'.repeat(Math.floor(review.rating))}${'✰'.repeat(5 - Math.floor(review.rating))}</div>
+                <a class="link row" href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,," target="_blank">
+                    <img src="assets/img/google.png" alt="">
+                </a>
+                <p>
+                    ${review.text}
+                </p>
+                <strong>${review.author_name}</strong>
+                <img class="avatar" src="${review.profile_photo_url}" alt="">
+            `;
+
+            splide__list.appendChild(review_card);
+        });
+
+        new Splide('.review_slider', {
+            type: 'loop',
+            perPage: 3,
+            perMove: 1,
+            gap: "1rem",
+            arrows: false,
+            paginationDirection: 'ttb',
+
+        }).mount();
+    }
+
+    window.onload = initMap;
+
+</script>
 
 
 </html>
