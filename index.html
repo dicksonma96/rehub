@@ -13,6 +13,10 @@
         <meta name="description"
             content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof. We help all ages move better, recover faster, and build lasting resilience.">
         <link rel="canonical" href="https://re-hub.com.my/">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+        <link rel="manifest" href="assets/site.webmanifest">
         <meta property="og:locale" content="en_US">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Re-Hub">
@@ -29,9 +33,16 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
 <body>
     <div class="container col">
+
+        <div class="floating">
+            <a href="whatsapp://send?phone=60176158116&text/" class="whatsapp row">
+                <img src="assets/img/whatsapp.webp" alt="whatsapp icon">
+            </a>
+        </div>
+
         <div class="header row">
             <div class="section_content pad row">
-                <img class="logo" src="assets/img/logo.png" alt="Re-Hub Logo">
+                <img class="logo" src="assets/img/logo.webp" alt="Re-Hub Logo">
 
                 <nav class="row">
                     <a class="link row active" href="#">Home</a>
@@ -39,13 +50,41 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                         <span class="material-symbols-outlined">
                             keyboard_arrow_down
                         </span>
+                        <div class="submenu col">
+                            <a class="link" href="#">Physiotherapy</a>
+                            <a class="link" href="#">Strength Training</a>
+                        </div>
                     </div>
                     <a class="link row" href="#">About Us</a>
-                    <a class="link row" href="#">Our Team</a>
-                    <a class="link row" href="#">Contact Us</a>
+                    <a class="link row" href="#team">Our Team</a>
+                    <a class="link row" href="#contact">Contact Us</a>
                 </nav>
 
-                <a href="#" class="cta_btn">Book An Appointment</a>
+                <a href="whatsapp://send?phone=60176158116&text/" class="cta_btn">Book An Appointment</a>
+
+                <span class="material-symbols-outlined mobile_menu_btn">
+                    menu
+                </span>
+            </div>
+            <div class="mobile_nav colc">
+                <a class="link row active" href="#">Home</a>
+                <a class="link row " href="#">Physiotherapy</a>
+                <a class="link row " href="#">Strength Training</a>
+                <a class="link row" href="#">About Us</a>
+                <a class="link row" href="#team">Our Team</a>
+                <a class="link row" href="#contact">Contact Us</a>
+
+
+                <div class="sm_row row">
+                    <a class="row"
+                        href="https://www.facebook.com/profile.php?id=61576003985372&mibextid=wwXIfr&rdid=252qaGp8eWaWn7kH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AgrWzyxK8%2F%3Fmibextid%3DwwXIfr#"
+                        target="_blank">
+                        <img src="assets/img/fb.webp" alt="">
+                    </a>
+                    <a class="row" href="https://www.instagram.com/rehub_pj?igsh=eWtnY2huYnhlcDRw" target="_blank">
+                        <img src="assets/img/ig.webp" alt="">
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -53,7 +92,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <div class="section_content col">
                 <div class="hero_text col">
                     <div class="text_box col">
-                        <h5 data-aos="flip-up">Elevating your comeback to your peak.</h5>
+                        <h5 data-aos="flip-up">"Elevating your comeback to your peak."</h5>
                         <h1 class="latte" data-aos="fade-right">WHERE<br>RECOVERY<br>MEETS</h1>
                         <h1 class="orange" data-aos="zoom-out-up">PERFORMANCE</h1>
                     </div>
@@ -68,13 +107,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     </span>
                 </div>
             </div>
-            <img src="assets/img/banner.jpg" alt="">
+            <img src="assets/img/banner.webp" alt="">
         </section>
 
         <section class="how_we_help colc">
             <div class="section_title colc">
-                <h5>From Rehab to peak performance</h5>
-                <h1><span class="latte">HOW WE HELP YOU</span> <br> <span class="orange">MOVE BETTER</span></h1>
+                <h5 data-aos="flip-up">"From rehab to peak performance"</h5>
+                <h1 data-aos="fade-right"><span class="latte">HOW WE HELP YOU</span> <br> <span class="orange">MOVE
+                        BETTER</span></h1>
             </div>
             <div class="section_content row">
                 <div class="help_card row">
@@ -82,11 +122,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                         <h3 class="latte">Integrated Rehab</h3>
                         <div class="hover_show col">
                             <p>Expert physiotherapy to heal injuries and restore pain-free movement.</p>
-                            <a href="#" class="cta_btn">Learn More</a>
+                            <a href="whatsapp://send?phone=60176158116&text/" class="cta_btn">Learn More</a>
                         </div>
                     </div>
-                    <img src="assets/img/how1.jpg" alt="">
-                    <video src="assets/video/how1.mp4" muted></video>
+                    <img src="assets/img/how1.webp" alt="">
+                    <video src="assets/video/how1.mp4" muted playsinline webkit-playsinline></video>
                 </div>
                 <div class="help_card row">
                     <div class="hover col">
@@ -96,8 +136,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                             <a href="#" class="cta_btn">Learn More</a>
                         </div>
                     </div>
-                    <img src="assets/img/how2.jpg" alt="">
-                    <video src="assets/video/how2.mp4" muted></video>
+                    <img src="assets/img/how2.webp" alt="">
+                    <video src="assets/video/how2.mp4" muted playsinline webkit-playsinline></video>
                 </div>
                 <div class="help_card row">
                     <div class="hover col">
@@ -107,35 +147,74 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                             <a href="#" class="cta_btn">Learn More</a>
                         </div>
                     </div>
-                    <img src="assets/img/how3.jpg" alt="">
+                    <img src="assets/img/how3.webp" alt="">
+                    <video src="assets/video/how3.mp4" muted playsinline webkit-playsinline></video>
                 </div>
             </div>
         </section>
 
-        <section class="integrated row">
+        <section class="integrated colc">
             <div class="section_content col">
-                <img class="model" src="assets/img/integrated_model.png" alt="">
+                <img class="model" src="assets/img/integrated_model.webp" alt="">
+
                 <div class="section_title col">
-                    <h1><span class="grey">INTEGRATED</span> <br> <span class="orange">PHYSIOTHERAPY &
+                    <h1><span class="grey" data-aos="flip-up">INTEGRATED</span> <br> <span class="orange"
+                            data-aos="fade-right">PHYSIOTHERAPY &
                             FITNESS</span>
                     </h1>
+                    <br>
                     <a href="#" class="cta_btn">Book An Appointment</a>
                 </div>
-                <img class="bg2" src="assets/img/integrated_bg2.png" alt="">
-                <img class="bg" src="assets/img/integrated_bg.png" alt="">
+
+                <div class="prompts">
+                    <div data-aos="fade-up" class="prompt_card active_prompt col">
+                        <img src="assets/img/integrated1.webp" alt="">
+                        <strong>Seamless Integration</strong>
+                        <p>Expert rehab and functional training under one roof.</p>
+                    </div>
+                    <div data-aos="fade-up" class="prompt_card active_prompt col">
+                        <img src="assets/img/integrated2.webp" alt="">
+                        <strong>Targeted Recovery</strong>
+                        <p>Specialized care to overcome pain and heal injuries.</p>
+                    </div>
+                    <div data-aos="fade-up" class="prompt_card active_prompt col">
+                        <img src="assets/img/integrated3.webp" alt="">
+                        <strong>Built for Resilience</strong>
+                        <p>Personalized programs to reach your peak performance.</p>
+                    </div>
+                    <div data-aos="fade-up" class="prompt_card active_prompt col">
+                        <img src="assets/img/integrated4.webp" alt="">
+                        <strong>Your Whole Journey</strong>
+                        <p>Support for every stage, from first step to final rep.</p>
+                    </div>
+
+                    <div class="scroll_down colc">
+                        <div class="mouse colc">
+                            <div class="scroller"></div>
+                        </div>
+                        <span class="material-symbols-outlined">
+                            keyboard_arrow_down
+                        </span>
+                    </div>
+                </div>
+                <img class="bg2" src="assets/img/integrated_bg2.webp" alt="">
+                <img class="bg" src="assets/img/integrated_bg.webp" alt="">
+
+
             </div>
 
         </section>
 
         <section class="team colc">
+            <div id="team" class="anchor"></div>
             <div class="section_title colc">
-                <h5>Meet the dedicated professionals behind Re-Hub</h5>
-                <h1><span class="latte">MEET</span><span class="orange">OUR TEAM</span></h1>
+                <h5 data-aos="flip-up">Meet the dedicated professionals behind Re-Hub</h5>
+                <h1 data-aos="fade-right"><span class="latte">MEET</span> <span class="orange">OUR TEAM</span></h1>
             </div>
-            <div class="section_content row">
+            <div class="section_content pad row">
                 <div class="team_card col">
-                    <img class="model" src="assets/img/rachel.png" alt="rachel">
-                    <img class="bg" src="assets/img/rachel_bg.jpg" alt="rachel">
+                    <img class="model" src="assets/img/rachel.webp" alt="rachel">
+                    <img class="bg" src="assets/img/rachel_bg.webp" alt="rachel">
                     <div class="info col">
                         <h3 class="latte">Rachel</h3>
                         <span class="orange">Physiotherapist</span>
@@ -143,8 +222,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     </div>
                 </div>
                 <div class="team_card col">
-                    <img class="model" src="assets/img/jamie.png" alt="jamie">
-                    <img class="bg" src="assets/img/jamie_bg.jpg" alt="jamie">
+                    <img class="model" src="assets/img/jamie.webp" alt="jamie">
+                    <img class="bg" src="assets/img/jamie_bg.webp" alt="jamie">
                     <div class="info col">
                         <h3 class="latte">Jamie</h3>
                         <span class="orange">Physiotherapist</span>
@@ -152,8 +231,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     </div>
                 </div>
                 <div class="team_card col">
-                    <img class="model" src="assets/img/jiawei.png" alt="jiawei">
-                    <img class="bg" src="assets/img/jiawei_bg.jpg" alt="jiawei">
+                    <img class="model" src="assets/img/jiawei.webp" alt="jiawei">
+                    <img class="bg" src="assets/img/jiawei_bg.webp" alt="jiawei">
                     <div class="info col">
                         <h3 class="latte">Jia Wei</h3>
                         <span class="orange">Physiotherapist</span>
@@ -161,8 +240,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     </div>
                 </div>
                 <div class="team_card col">
-                    <img class="model" src="assets/img/zakwan.png" alt="zakwan">
-                    <img class="bg" src="assets/img/zakwan_bg.jpg" alt="zakwan">
+                    <img class="model" src="assets/img/zakwan.webp" alt="zakwan">
+                    <img class="bg" src="assets/img/zakwan_bg.webp" alt="zakwan">
                     <div class="info col">
                         <h3 class="latte">Zakwan</h3>
                         <span class="orange">Performance Coach</span>
@@ -173,13 +252,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </section>
 
         <section class="reviews">
-            <div class="section_content col">
+            <div class="section_content pad col">
                 <div class="section_title col">
-                    <h5>What People Say About Us</h5>
-                    <h1><span class="latte">OUR</span><span class="orange"> REVIEWS</span></h1>
+                    <h5 data-aos="flip-up">"What people say about us"</h5>
+                    <h1 data-aos="fade-right"><span class="latte">OUR</span><span class="orange"> REVIEWS</span></h1>
                 </div>
             </div>
-            <div class="section_content review_header row">
+            <div class="section_content review_header row pad">
                 <div class="stars row">
 
                 </div>
@@ -187,7 +266,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 <a href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,,"
                     target="_blank" class="cta_btn" style="margin-right:2rem">Leave a Review</a>
             </div>
-            <div class="section_content review_slider splide">
+            <div class="section_content review_slider splide pad">
                 <div class="splide__track" style="margin-right:2rem">
                     <ul class="splide__list">
                         <!-- Reviews will be populated here -->
@@ -205,11 +284,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </section>
 
         <section class="mid_banner">
-            <div class="section_content col">
+            <div class="section_content  col">
                 <h1>
-                    <span class="latte">WHERE</span> <br>
-                    <span class="latte">RECOVERY MEETS</span> <br>
-                    <span class="orange">PERFORMANCE</span>
+                    <span class="latte" data-aos="fade-down">WHERE</span> <br>
+                    <span class="latte" data-aos="fade-right">RECOVERY MEETS</span> <br>
+                    <span class="orange" data-aos="fade-up">PERFORMANCE</span>
                 </h1>
                 <br>
                 <a href="#" class="cta_btn">About Re-Hub</a>
@@ -217,10 +296,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </section>
 
         <section class="faq">
-            <div class="section_content row">
-                <img src="assets/img/faq_banner.jpg" alt="">
+            <div class="section_content pad row">
+                <img src="assets/img/faq_banner.webp" alt="">
                 <div class="faq_list col">
-                    <h1><span class="latte">FREQUENTLY</span> <span class="orange">ASKED QUESTIONS</span></h1>
+                    <h1 data-aos="fade-right"><span class="latte">FREQUENTLY</span> <br> <span class="orange">ASKED
+                            QUESTIONS</span></h1>
 
                     <div class="faq_item col">
                         <div class="qt row">
@@ -234,38 +314,147 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     </div>
                     <div class="faq_item col">
                         <div class="qt row">
-                            <strong>Do I need a doctor's referral to book for a physiotherapy session?</strong>
+                            <strong>How long is your session?</strong>
                             <span class="material-symbols-outlined">
                                 keyboard_arrow_down
                             </span>
                         </div>
-                        <p class="ans">No referral is needed. You can book directly with us — we’ll assess your
-                            condition and recommend the best plan based on your goals.</p>
+                        <p class="ans">It is a one hour 1-to-1 session. </p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Who are your services for?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">Re-Hub is for everyone — from athletes to office workers, seniors to youth —
+                            anyone dealing with pain, recovering from injury, or aiming to move better and feel
+                            stronger. </p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>What should I wear to my physiotherapy appointment or training session?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">Wear comfortable, flexible clothing (e.g., t-shirt, shorts, or activewear) so we
+                            can assess your movement properly.</p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Do you offer packages or memberships?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">We offer session packages and tailored programs. Ask our team about options that
+                            best suit your recovery or fitness goals. </p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Is Re-Hub physiotherapy packages claimable under insurance?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">Yes — many of our physiotherapy sessions are claimable under personal or
+                            corporate medical insurance with pay and claim policy. Please check with your provider.</p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Do I need to make a prior appointment or walk in?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">Prior appointment is needed to ensure there is available physio / coach to attend
+                            to you. Contact our team.</p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Can I do both rehab and fitness training at Re-Hub?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">Yes! Our approach combines rehabilitation with functional strength and
+                            performance training — so you can safely return to activity and even surpass your previous
+                            performance level.</p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>Can I bring my child / elderly parents for a session?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">Yes — we work with clients of all ages, including children, teens, and older
+                            adults. Our therapists adapt care for every age group.</p>
+                    </div>
+                    <div class="faq_item col">
+                        <div class="qt row">
+                            <strong>What if I need to cancel or reschedule my session?</strong>
+                            <span class="material-symbols-outlined">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+                        <p class="ans">No problem. Just let us know at least 24 hours in advance, and we’ll help you
+                            reschedule with no penalty.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="footer col">
-            <div class="section_content contact_footer">
-                <div class="text colc">
-                    <h1>FOR FURTHER ENQUIRIES CONTACT <br>
-                        <span class="orange" href="#"> hello.rehub@gmail.com</span>
-                    </h1>
+        <section class="contact_form">
+            <div id="contact" class="anchor"></div>
+            <div class="section_content colc pad">
+                <h5 data-aos="flip-up">"Book your first appointment today!"</h5>
+                <h1 data-aos="fade-right"><span class="latte">GET IN</span> <span class="orange">TOUCH</span></h1>
+                <div class="contact_status submit_success row">
+                    <span class="material-symbols-outlined">
+                        check_circle
+                    </span>
+                    <strong>Your message was sent successfully. Thank you!</strong>
                 </div>
-                <img class="contact_bg" src="assets/img/footer_bg.jpg" alt="">
+                <div class="contact_status submit_failed row">
+                    <span class="material-symbols-outlined">
+                        error
+                    </span>
+                    <strong>There was an error sending your message. Please try again later.</strong>
+                </div>
+                <form id="contact_form" class="form col">
+                    <input type="text" name="your-name" placeholder="Name" required>
+                    <input type="email" name="your-email" placeholder="Email" required>
+                    <input type="text" name="your-subject" placeholder="Subject" required>
+                    <textarea name="your-message" rows="5" placeholder="Your Message" required></textarea>
+                    <button id="contact_submit" type="submit" class="cta_btn">Submit</button>
+                </form>
             </div>
-            <div class="section_content row">
+        </section>
+
+        <section class="footer col pad">
+            <div class="section_content contact_footer col">
+                <h1 data-aos="fade-right">FOR FURTHER ENQUIRIES CONTACT <br>
+                    <span class="orange" href="#"> hello.rehub@gmail.com</span>
+                </h1>
+            </div>
+            <div class="section_content footer_info row">
                 <div class="sm_col col">
-                    <img class="logo" src="assets/img/logo.png" alt="Re-Hub Logo">
-                    <strong>“Where recovery meets performance”</strong>
+                    <div class="col">
+                        <img class="logo" src="assets/img/logo.webp" alt="Re-Hub Logo">
+                        <strong>“Where recovery meets performance”</strong>
+                    </div>
 
                     <div class="sm_row row">
-                        <a class="row" href="#">
-                            <img src="assets/img/fb.png" alt="">
+                        <a class="row"
+                            href="https://www.facebook.com/profile.php?id=61576003985372&mibextid=wwXIfr&rdid=252qaGp8eWaWn7kH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AgrWzyxK8%2F%3Fmibextid%3DwwXIfr#"
+                            target="_blank">
+                            <img src="assets/img/fb.webp" alt="">
                         </a>
-                        <a class="row" href="#">
-                            <img src="assets/img/ig.png" alt="">
+                        <a class="row" href="https://www.instagram.com/rehub_pj?igsh=eWtnY2huYnhlcDRw" target="_blank">
+                            <img src="assets/img/ig.webp" alt="">
                         </a>
                     </div>
                 </div>
@@ -284,14 +473,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                     <a href="#">Physiotherapy</a>
                     <a href="#">Personal Training</a>
                     <a href="#">About Us</a>
-                    <a href="#">Our Team</a>
-                    <a href="#">Contact</a>
+                    <a href="#team">Our Team</a>
+                    <a href="#contact">Contact</a>
                 </div>
 
                 <div class="info_col col">
                     <strong class="orange">Find Us</strong>
-                    <a href="#">hello.rehub@gmail.com</a>
-                    <a href="#">+6017-6158116</a>
+                    <a href="mailto:hello.rehub@gmail.com">hello.rehub@gmail.com</a>
+                    <a href="tel:+6017-6158116">+6017-6158116</a>
                 </div>
             </div>
             <footer class="section_content row">
@@ -302,8 +491,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
     </div>
 </body>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
@@ -428,7 +615,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
             review_card.innerHTML = `
                 <div class="stars row">${'★'.repeat(Math.floor(review.rating))}${'✰'.repeat(5 - Math.floor(review.rating))}</div>
                 <a class="link row" href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,," target="_blank">
-                    <img src="assets/img/google.png" alt="">
+                    <img src="assets/img/google.webp" alt="">
                 </a>
                 <p>
                     ${review.text}
@@ -443,6 +630,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
         new Splide('.review_slider', {
             type: 'loop',
             perPage: 3,
+            breakpoints: {
+                800: {
+                    perPage: 2,
+                },
+                600: {
+                    perPage: 1,
+                }
+            },
             perMove: 1,
             gap: "1rem",
             arrows: false,
@@ -454,6 +649,52 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
     window.onload = initMap;
 
 </script>
+<script>
+    const contactForm = document.querySelector('#contact_form');
+    const contactSubmitBtn = document.querySelector('#contact_submit');
+    const successMessage = document.querySelector('.submit_success');
+    const errorMessage = document.querySelector('.submit_failed');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            contactSubmitBtn.disabled = true;
+            contactSubmitBtn.innerText = "Sending...";
+            e.preventDefault();
+            const formId = 10474; // Replace with your actual Contact Form 7 ID
+            // 1. Gather the data
+            const formData = new FormData(contactForm);
+            formData.append('_wpcf7', formId);
+            formData.append('_wpcf7_unit_tag', `wpcf7-f${formId}-p1-o1`);
+            formData.append('_wpcf7_version', '6.0.6');
+            // 2. The API Endpoint (Replace '123' with your actual ID)
+            // Note: If you moved WP to /blog/, make sure to include it in the URL
+            const endpoint = `https://re-hub.com.my/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`;
 
+            fetch(endpoint, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'mail_sent') {
+                        contactForm.reset(); // Clear the form
+                        successMessage.style.display = 'flex';
+                    } else {
+                        console.log('Validation Errors:', data.invalid_fields);
+                        errorMessage.style.display = 'flex';
+                    }
+                })
+                .catch(error => {
+                    console.error('Submit Error:', error);
+                    alert('Something went wrong. Please try again later.');
+                }).finally(() => {
+
+                    contactSubmitBtn.disabled = false;
+                    contactSubmitBtn.innerText = "Submit";
+                });
+        });
+    }
+</script>
 
 </html>
