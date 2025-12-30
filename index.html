@@ -24,11 +24,11 @@
             content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof. We help all ages move better, recover faster, and build lasting resilience.">
         <meta property="og:url" content="https://re-hub.com.my/">
         <meta property="og:site_name" content="Re-Hub">
-        <link rel="stylesheet" href="style.min.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
+        <link rel="stylesheet" href="style.min.css?v=2">
     </head>
 
 <body>
@@ -46,16 +46,16 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
                 <nav class="row">
                     <a class="link row active" href="#">Home</a>
-                    <div class="link row" href="#">Our Services
+                    <div class="link row">Our Services
                         <span class="material-symbols-outlined">
                             keyboard_arrow_down
                         </span>
                         <div class="submenu col">
-                            <a class="link" href="#">Physiotherapy</a>
-                            <a class="link" href="#">Strength Training</a>
+                            <a class="link" href="physiotherapy.html">Physiotherapy</a>
+                            <a class="link" href="strength_training.html">Strength Training</a>
                         </div>
                     </div>
-                    <a class="link row" href="#">About Us</a>
+                    <a class="link row" href="about.html">About Us</a>
                     <a class="link row" href="#team">Our Team</a>
                     <a class="link row" href="#contact">Contact Us</a>
                 </nav>
@@ -68,12 +68,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             </div>
             <div class="mobile_nav colc">
                 <a class="link row active" href="#">Home</a>
-                <a class="link row " href="#">Physiotherapy</a>
-                <a class="link row " href="#">Strength Training</a>
-                <a class="link row" href="#">About Us</a>
+                <a class="link row " href="physiotherapy.html">Physiotherapy</a>
+                <a class="link row " href="strength_training.html">Strength Training</a>
+                <a class="link row" href="about.html">About Us</a>
                 <a class="link row" href="#team">Our Team</a>
                 <a class="link row" href="#contact">Contact Us</a>
-
 
                 <div class="sm_row row">
                     <a class="row"
@@ -264,10 +263,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 </div>
                 <div><span id="rating">?</span> rating of <span id="total_rating">?</span> reviews</div>
                 <a href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,,"
-                    target="_blank" class="cta_btn" style="margin-right:2rem">Leave a Review</a>
+                    target="_blank" class="cta_btn">Leave a Review</a>
             </div>
             <div class="section_content review_slider splide pad">
-                <div class="splide__track" style="margin-right:2rem">
+                <div class="splide__track">
                     <ul class="splide__list">
                         <!-- Reviews will be populated here -->
                     </ul>
@@ -470,9 +469,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
                 <div class="info_col col">
                     <strong class="orange">Menu</strong>
-                    <a href="#">Physiotherapy</a>
-                    <a href="#">Personal Training</a>
-                    <a href="#">About Us</a>
+                    <a href="physiotherapy.html">Physiotherapy</a>
+                    <a href="strength_training.html">Strength Training</a>
+                    <a href="about.html">About Us</a>
                     <a href="#team">Our Team</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -495,7 +494,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 <script>
     AOS.init();
 </script>
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
 "></script>
@@ -641,7 +640,6 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
             perMove: 1,
             gap: "1rem",
             arrows: false,
-            paginationDirection: 'ttb',
 
         }).mount();
     }
