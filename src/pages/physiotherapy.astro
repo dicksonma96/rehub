@@ -1,0 +1,38 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import "../service.scss";
+import ServiceCard from "../components/ServiceCard.astro";
+import { physiotherapy } from "../services";
+---
+
+<MainLayout>
+  <section class="service_banner physio_banner pad">
+    <div class="section_content col">
+      <div class="col">
+        <h1 data-aos="fade-right">
+          <span class="latte">RE-HUB</span>
+          <br />
+          <span class="orange">PHYSIOTHERAPY</span>
+        </h1>
+        <br />
+        <p>
+          "Our physiotherapy services combine hands-on treatments, advanced
+          modalities, and personalized care plans to relieve pain, restore
+          mobility, and support recovery—whether you're healing from injury,
+          managing chronic conditions, or improving overall physical function."
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="services">
+    <div class="section_content pad col">
+      <div class="breadcrumb">
+        Our Services >
+        <span class="orange">Physiotherapy</span>
+      </div>
+      <div class="service_listing">
+        {physiotherapy.map((item) => <ServiceCard info={item} />)}
+      </div>
+    </div>
+  </section>
+</MainLayout>

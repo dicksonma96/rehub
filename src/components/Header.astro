@@ -1,0 +1,143 @@
+---
+const { pathname } = Astro.url;
+import { whatsapp_href } from "../site_config";
+
+// A helper to check if the link is active
+// Remove trailing slashes to ensure /about/ matches /about
+const isActive = (path: string) => pathname === path || pathname === path + "/";
+
+export const navItems = [
+  { name: "Home", href: "/" },
+  {
+    name: "Our Services",
+    href: "/physiotherapy", // Optional: parent link
+    submenu: [
+      { name: "Physiotherapy", href: "/physiotherapy" },
+      { name: "Strength Training", href: "/strength-training" },
+    ],
+  },
+  { name: "About Us", href: "/about-us" },
+  { name: "Our Team", href: "/#team" }, // Using # for same-page anchors
+  { name: "Contact Us", href: "/#contact" },
+];
+---
+
+<div class="header row">
+  <div class="section_content pad row">
+    <img class="logo" src="assets/img/logo.webp" alt="Re-Hub Logo" />
+
+    <nav class="row">
+      {
+        navItems.map((item) => (
+          <>
+            {item.submenu ? (
+              /* Dropdown Version */
+              <div class={`link row ${isActive(item.href) ? "active" : ""}`}>
+                {item.name}
+                <span class="material-symbols-outlined">
+                  keyboard_arrow_down
+                </span>
+                <div class="submenu col">
+                  {item.submenu.map((sub) => (
+                    <a
+                      class={`link ${isActive(sub.href) ? "active" : ""}`}
+                      href={sub.href}
+                    >
+                      {sub.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              /* Standard Link Version */
+              <a
+                class={`link row ${isActive(item.href) ? "active" : ""}`}
+                href={item.href}
+              >
+                {item.name}
+              </a>
+            )}
+          </>
+        ))
+      }
+    </nav>
+
+    <a href={whatsapp_href()} class="cta_btn">Book An Appointment</a>
+
+    <span class="material-symbols-outlined mobile_menu_btn"> menu </span>
+  </div>
+  <div class="mobile_nav colc">
+    {
+      navItems.map((item) => (
+        <>
+          {item.submenu ? (
+            /* Dropdown Version */
+            item.submenu.map((sub) => (
+              <a
+                class={`link row ${isActive(sub.href) ? "active" : ""}`}
+                href={sub.href}
+              >
+                {sub.name}
+              </a>
+            ))
+          ) : (
+            /* Standard Link Version */
+            <a
+              class={`link row ${isActive(item.href) ? "active" : ""}`}
+              href={item.href}
+            >
+              {item.name}
+            </a>
+          )}
+        </>
+      ))
+    }
+
+    <div class="sm_row row">
+      <a
+        class="row"
+        href="https://www.facebook.com/profile.php?id=61576003985372&mibextid=wwXIfr&rdid=252qaGp8eWaWn7kH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AgrWzyxK8%2F%3Fmibextid%3DwwXIfr#"
+        target="_blank"
+      >
+        <img src="assets/img/fb.webp" alt="" />
+      </a>
+      <a
+        class="row"
+        href="https://www.instagram.com/rehub_pj?igsh=eWtnY2huYnhlcDRw"
+        target="_blank"
+      >
+        <img src="assets/img/ig.webp" alt="" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
+  });
+
+  const menu_btn = document.querySelector(".mobile_menu_btn");
+  const mob_menu_links = document.querySelectorAll(".mobile_nav .link");
+
+  function ToggleMobNav() {
+    header?.classList.toggle("header_mob");
+    if (header?.classList.contains("header_mob")) {
+      if (menu_btn) menu_btn.innerHTML = "close";
+    } else {
+      if (menu_btn) menu_btn.innerHTML = "menu";
+    }
+  }
+
+  menu_btn?.addEventListener("click", ToggleMobNav);
+
+  mob_menu_links.forEach((link) => {
+    link.addEventListener("click", ToggleMobNav);
+  });
+</script>

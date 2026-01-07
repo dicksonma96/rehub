@@ -1,0 +1,227 @@
+---
+import { whatsapp_href } from "../site_config.js";
+import MainLayout from "../layouts/MainLayout.astro";
+import "../about.scss";
+
+// Carousel.astro
+const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
+---
+
+<MainLayout>
+  <section class="about_hero">
+    <div class="section_content col">
+      <div class="col left_text">
+        <h5 data-aos="flip-up">"Where recovery meets performance"</h5>
+        <h1 data-aos="fade-right">
+          <span class="latte">ABOUT US</span>
+          <br />
+          <span class="orange">RE-HUB</span>
+        </h1>
+      </div>
+      <p>
+        "Re-Hub is an integrated movement centre bridging the gap between rehab
+        and performance, dedicated to empowering our community with accessible,
+        expert-led care for every body."
+        <br /><br />
+        "We believe that quality care should be accessible to all. As part of our
+        commitment to the community. Re-Hub dedicates time and resources to support
+        individuals in genuine need — especially those facing financial hardship.""
+      </p>
+    </div>
+  </section>
+  <section class="carousel row">
+    <div class="carousel_inner row">
+      {
+        items.map((item: number) => (
+          <img src={`./assets/img/about_carousel${item}.webp`} alt="" />
+        ))
+      }
+      {
+        items.map((item: number) => (
+          <img
+            src={`./assets/img/about_carousel${item}.webp`}
+            alt=""
+            aria-hidden="true"
+          />
+        ))
+      }
+    </div>
+  </section>
+  <section class="performance">
+    <div class="section_content pad row">
+      <div class="p_left col">
+        <h1 data-aos="fade-right">
+          <span class="latte">PERFORMANCE IS FOR</span>
+          <br />
+          <span class="orange">EVERYBODY</span>
+        </h1>
+        <p>
+          "From elite athletes to daily movers. Performance is personal, We help
+          you master yours."
+        </p>
+
+        <div class="p_cards row">
+          <div class="p_card colc">
+            <img src="./assets/img/performance1.webp" alt="" />
+            <strong>Reach <br /> Your Peak</strong>
+            <em>(Elite Sports / Strength)</em>
+          </div>
+          <div class="p_card colc">
+            <img src="./assets/img/performance2.webp" alt="" />
+            <strong>Regain <br /> Your Freedom</strong>
+            <em>(Stroke / Injury Rehab)</em>
+          </div>
+          <div class="p_card colc">
+            <img src="./assets/img/performance3.webp" alt="" />
+            <strong>Stay <br /> Independent</strong>
+            <em>(Seniors / Youth Motor Skills)</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="model">
+        <img src="./assets/img/performance_model.webp" alt="" />
+
+        <img
+          data-aos="fade-right"
+          data-aos-delay="250"
+          data-aos-offset="200"
+          src="./assets/img/performance_model2.webp"
+          alt=""
+        />
+        <img
+          data-aos="fade-left"
+          data-aos-delay="200"
+          data-aos-offset="500"
+          src="./assets/img/performance_model3.webp"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="section_content pad row">
+      <div class="why_left col">
+        <h5 data-aos="flip-up">"One-on-one physiotherapy sessions"</h5>
+        <h1 data-aos="fade-right">
+          <span class="grey">WHY CHOOSE</span>
+          <br />
+          <span class="orange">RE-HUB</span>
+        </h1>
+
+        <div class="col list">
+          <span>✅ Customised fitness and rehab plans</span>
+          <span
+            >✅ Certified Malaysian physiotherapists and fitness coaches</span
+          >
+          <span>✅ Convenient, integrated care under one roof</span>
+        </div>
+        <a class="cta_btn2" href={whatsapp_href()}>Book An Appointment</a>
+      </div>
+      <div class="why_right row">
+        <img class="tiltCard" src="./assets/img/why1.webp" alt="" />
+        <img class="tiltCard" src="./assets/img/why2.webp" alt="" />
+      </div>
+    </div>
+  </section>
+  <section class="vsms">
+    <div class="section_content pad col">
+      <div class="vm_item row">
+        <div class="model row">
+          <img src="./assets/img/vision_model_bg.webp" alt="" />
+
+          <img
+            data-aos="fade-up"
+            data-aos-offset="200"
+            src="./assets/img/vision_model.webp"
+            alt=""
+          />
+        </div>
+        <div class="col">
+          <img src="./assets/img/vision_icon.webp" alt="vision" />
+          <span>What inspired us</span>
+          <h1>
+            <span class="latte">OUR</span><br /><span class="orange"
+              >VISION</span
+            >
+          </h1>
+          <p>
+            "Our vision is to grow into a leading movement and recovery hub that
+            offers accessible and top-tier services to the community. We aim to
+            be your go-to destination for recovery, fitness, and overall
+            well-being, offering solutions that are both effective and
+            sustainable."
+          </p>
+        </div>
+      </div>
+
+      <div class="vm_item row">
+        <div class="model row">
+          <img src="./assets/img/mission_model_bg.webp" alt="" />
+          <img
+            data-aos="fade-left"
+            data-aos-offset="200"
+            src="./assets/img/mission_model.webp"
+            alt=""
+          />
+        </div>
+        <div class="col">
+          <img src="./assets/img/mission_icon.webp" alt="mission" />
+          <span>What we do</span>
+          <h1>
+            <span class="latte">OUR</span><br /><span class="orange"
+              >MISSION</span
+            >
+          </h1>
+          <p>
+            "We are committed to empowering individuals to move better, recover
+            faster, and build long-term resilience through our carefully
+            designed physiotherapy and fitness programs. Our mission is built on
+            the following."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end_hero">
+    <div class="section_content row">
+      <div class="col">
+        <h1 class="grey" data-aos="fade-right">
+          WHERE <br /> RECOVERY <br /> MEETS
+        </h1>
+        <h1 class="orange" data-aos="fade-right">PERFORMANCE</h1>
+        <a class="cta_btn" href={whatsapp_href()}>Book An Appointment</a>
+      </div>
+      <img src="./assets/img/group_photo.webp" alt="" />
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  const cards = document.querySelectorAll(
+    ".tiltCard"
+  ) as NodeListOf<HTMLImageElement>;
+
+  cards.forEach((card: HTMLImageElement) => {
+    card.addEventListener("mousemove", (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const { left, top, width, height } = card.getBoundingClientRect();
+
+      // Calculate mouse position relative to center of card (-1 to 1)
+      const x = (clientX - left) / width - 0.5;
+      const y = (clientY - top) / height - 0.5;
+
+      // Multiply by rotation intensity (e.g., 20 degrees)
+      const tiltX = y * -20;
+      const tiltY = x * 20;
+
+      card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) `;
+    });
+  });
+</script>

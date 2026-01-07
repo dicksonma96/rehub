@@ -1,0 +1,17 @@
+{
+  "name": "rehub",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "aos": "^2.3.4",
+    "astro": "^5.16.6",
+    "sass": "^1.97.1"
+  }
+}

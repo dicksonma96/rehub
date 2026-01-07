@@ -1,0 +1,319 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import GoogleReviews from "../components/GoogleReviews.astro";
+import Contact from "../components/Contact.astro";
+import Team from "../components/Team.astro";
+import { whatsapp_href } from "../site_config";
+---
+
+<MainLayout title="Rehub">
+  <section class="hero row">
+    <div class="section_content col">
+      <div class="hero_text col">
+        <div class="text_box col">
+          <h5 data-aos="flip-up">"Elevating your comeback to your peak."</h5>
+          <h1 class="latte" data-aos="fade-right">
+            WHERE<br />RECOVERY<br />MEETS
+          </h1>
+          <h1 class="orange" data-aos="zoom-out-up">PERFORMANCE</h1>
+        </div>
+        <a class="cta_btn" href="/about-us">About Re-Hub</a>
+      </div>
+      <div class="scroll_down colc">
+        <div class="mouse colc">
+          <div class="scroller"></div>
+        </div>
+        <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+      </div>
+    </div>
+    <img src="assets/img/banner.webp" alt="" />
+  </section>
+
+  <section class="how_we_help colc">
+    <div class="section_title colc">
+      <h5 data-aos="flip-up">"From rehab to peak performance"</h5>
+      <h1 data-aos="fade-right">
+        <span class="latte">HOW WE HELP YOU</span>
+        <br />
+        <span class="orange">MOVE BETTER</span>
+      </h1>
+    </div>
+    <div class="section_content row">
+      <div class="help_card row">
+        <div class="hover col">
+          <h3 class="latte">Integrated Rehab</h3>
+          <div class="hover_show col">
+            <p>
+              Expert physiotherapy to heal injuries and restore pain-free
+              movement.
+            </p>
+            <a href="/physiotherapy" class="cta_btn">Learn More</a>
+          </div>
+        </div>
+        <img src="assets/img/how1.webp" alt="" />
+        <video src="assets/video/how1.mp4" muted playsinline webkit-playsinline
+        ></video>
+      </div>
+      <div class="help_card row">
+        <div class="hover col">
+          <h3 class="latte">Strength Training</h3>
+          <div class="hover_show col">
+            <p>
+              Functional strength and conditioning to help you reach your peak.
+            </p>
+            <a href="/strength-training" class="cta_btn">Learn More</a>
+          </div>
+        </div>
+        <img src="assets/img/how2.webp" alt="" />
+        <video src="assets/video/how2.mp4" muted playsinline webkit-playsinline
+        ></video>
+      </div>
+      <div class="help_card row">
+        <div class="hover col">
+          <h3 class="latte">A Resilient Body</h3>
+          <div class="hover_show col">
+            <p>
+              We build the foundation you need to move with ease, regardless of
+              age or ability.
+            </p>
+            <a href="/strength-training" class="cta_btn">Learn More</a>
+          </div>
+        </div>
+        <img src="assets/img/how3.webp" alt="" />
+        <video src="assets/video/how3.mp4" muted playsinline webkit-playsinline
+        ></video>
+      </div>
+    </div>
+  </section>
+
+  <section class="integrated colc">
+    <div class="section_content col">
+      <img class="model" src="assets/img/integrated_model.webp" alt="" />
+
+      <div class="section_title col">
+        <h1>
+          <span class="grey" data-aos="flip-up">INTEGRATED</span>
+          <br />
+          <span class="orange" data-aos="fade-right"
+            >PHYSIOTHERAPY & FITNESS</span
+          >
+        </h1>
+        <br />
+        <a href={whatsapp_href()} class="cta_btn">Book An Appointment</a>
+      </div>
+
+      <div class="prompts">
+        <div data-aos="fade-up" class="prompt_card active_prompt col">
+          <img src="assets/img/integrated1.webp" alt="" />
+          <strong>Seamless Integration</strong>
+          <p>Expert rehab and functional training under one roof.</p>
+        </div>
+        <div data-aos="fade-up" class="prompt_card active_prompt col">
+          <img src="assets/img/integrated2.webp" alt="" />
+          <strong>Targeted Recovery</strong>
+          <p>Specialized care to overcome pain and heal injuries.</p>
+        </div>
+        <div data-aos="fade-up" class="prompt_card active_prompt col">
+          <img src="assets/img/integrated3.webp" alt="" />
+          <strong>Built for Resilience</strong>
+          <p>Personalized programs to reach your peak performance.</p>
+        </div>
+        <div data-aos="fade-up" class="prompt_card active_prompt col">
+          <img src="assets/img/integrated4.webp" alt="" />
+          <strong>Your Whole Journey</strong>
+          <p>Support for every stage, from first step to final rep.</p>
+        </div>
+
+        <div class="scroll_down colc">
+          <div class="mouse colc">
+            <div class="scroller"></div>
+          </div>
+          <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+        </div>
+      </div>
+      <img class="bg2" src="assets/img/integrated_bg2.webp" alt="" />
+      <img class="bg" src="assets/img/integrated_bg.webp" alt="" />
+    </div>
+  </section>
+
+  <Team />
+
+  <GoogleReviews />
+
+  <section class="mid_banner">
+    <div class="section_content col">
+      <h1>
+        <span class="latte" data-aos="fade-down">WHERE</span>
+        <br />
+        <span class="latte" data-aos="fade-right">RECOVERY MEETS</span>
+        <br />
+        <span class="orange" data-aos="fade-up">PERFORMANCE</span>
+      </h1>
+      <br />
+      <a href="/about-us" class="cta_btn">About Re-Hub</a>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="section_content pad row">
+      <img src="assets/img/faq_banner.webp" alt="" />
+      <div class="faq_list col">
+        <h1 data-aos="fade-right">
+          <span class="latte">FREQUENTLY</span>
+          <br />
+          <span class="orange">ASKED QUESTIONS</span>
+        </h1>
+
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong
+              >Do I need a doctor's referral to book for a physiotherapy
+              session?</strong
+            >
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            No referral is needed. You can book directly with us — we’ll assess
+            your condition and recommend the best plan based on your goals.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong>How long is your session?</strong>
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">It is a one hour 1-to-1 session.</p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong>Who are your services for?</strong>
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            Re-Hub is for everyone — from athletes to office workers, seniors to
+            youth — anyone dealing with pain, recovering from injury, or aiming
+            to move better and feel stronger.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong
+              >What should I wear to my physiotherapy appointment or training
+              session?</strong
+            >
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            Wear comfortable, flexible clothing (e.g., t-shirt, shorts, or
+            activewear) so we can assess your movement properly.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong>Do you offer packages or memberships?</strong>
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            We offer session packages and tailored programs. Ask our team about
+            options that best suit your recovery or fitness goals.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong
+              >Is Re-Hub physiotherapy packages claimable under insurance?</strong
+            >
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            Yes — many of our physiotherapy sessions are claimable under
+            personal or corporate medical insurance with pay and claim policy.
+            Please check with your provider.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong>Do I need to make a prior appointment or walk in?</strong>
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            Prior appointment is needed to ensure there is available physio /
+            coach to attend to you. Contact our team.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong>Can I do both rehab and fitness training at Re-Hub?</strong>
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            Yes! Our approach combines rehabilitation with functional strength
+            and performance training — so you can safely return to activity and
+            even surpass your previous performance level.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong
+              >Can I bring my child / elderly parents for a session?</strong
+            >
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            Yes — we work with clients of all ages, including children, teens,
+            and older adults. Our therapists adapt care for every age group.
+          </p>
+        </div>
+        <div class="faq_item col">
+          <div class="qt row">
+            <strong>What if I need to cancel or reschedule my session?</strong>
+            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+          </div>
+          <p class="ans">
+            No problem. Just let us know at least 24 hours in advance, and we’ll
+            help you reschedule with no penalty.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+</MainLayout>
+
+<script>
+  const help_card = document.querySelectorAll(".help_card");
+
+  help_card.forEach((card: Element) => {
+    const video = card.querySelector("video") as HTMLVideoElement;
+    if (video === null) return;
+    card.addEventListener("mouseenter", () => {
+      video.currentTime = 0;
+      video.play();
+      video.style.opacity = "1";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      video.pause();
+      video.style.opacity = "0";
+    });
+    video.addEventListener("ended", () => {
+      video.style.opacity = "0";
+    });
+  });
+</script>
+
+<script>
+  const faq_item = document.querySelectorAll(".faq_item");
+
+  faq_item.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      faq_item.forEach((i, idx) => {
+        if (index === idx) return;
+        i.classList.remove("faq_open");
+      });
+
+      item.classList.toggle("faq_open");
+    });
+  });
+</script>

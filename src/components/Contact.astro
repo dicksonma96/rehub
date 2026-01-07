@@ -1,0 +1,117 @@
+---
+
+---
+
+<section class="contact_form">
+  <div id="contact" class="anchor"></div>
+  <div class="section_content colc pad">
+    <h5 data-aos="flip-up">"Book your first appointment today!"</h5>
+    <h1 data-aos="fade-right">
+      <span class="latte">GET IN</span>
+      <span class="orange">TOUCH</span>
+    </h1>
+    <div class="contact_status submit_success row">
+      <span class="material-symbols-outlined"> check_circle </span>
+      <strong>Your message was sent successfully. Thank you!</strong>
+    </div>
+    <div class="contact_status submit_failed row">
+      <span class="material-symbols-outlined"> error </span>
+      <strong
+        >There was an error sending your message. Please try again later.</strong
+      >
+    </div>
+    <form id="contact_form" class="form col">
+      <input type="text" name="your-name" placeholder="Name" required />
+      <input type="email" name="your-email" placeholder="Email" required />
+      <input type="text" name="your-subject" placeholder="Subject" required />
+      <textarea name="your-message" rows="5" placeholder="Your Message" required
+      ></textarea>
+
+      <script src="https://www.google.com/recaptcha/api.js" async defer
+      ></script>
+
+      <button
+        id="contact_submit"
+        class="g-recaptcha cta_btn"
+        data-sitekey="6LdS-kIsAAAAAH-dHHTqEK3hOO2buhjuRz7_3Ehu"
+        data-callback="onSubmit"
+        type="submit">Submit</button
+      >
+    </form>
+  </div>
+</section>
+
+<script>
+  declare global {
+    interface Window {
+      onSubmit: (token: string) => void;
+    }
+  }
+  let submiting = false;
+  // 1. Make the function global so Google can find it
+  window.onSubmit = function (token) {
+    if (submiting) return;
+    submiting = true;
+    const contactForm = document.querySelector(
+      "#contact_form"
+    ) as HTMLFormElement;
+    const contactSubmitBtn = document.querySelector(
+      "#contact_submit"
+    ) as HTMLButtonElement;
+    const successMessage = document.querySelector(
+      ".submit_success"
+    ) as HTMLElement;
+    const errorMessage = document.querySelector(
+      ".submit_failed"
+    ) as HTMLElement;
+
+    if (!contactForm) return;
+
+    // UI Feedback
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+    contactSubmitBtn.disabled = true;
+    contactSubmitBtn.innerText = "Sending...";
+
+    const formId = "10474";
+    const formData = new FormData(contactForm);
+
+    // 2. Append reCAPTCHA token and mandatory CF7 tags
+    formData.append("_wpcf7_recaptcha_response", token); // Proof for Google
+    formData.append("_wpcf7", formId); // Form ID
+    formData.append("_wpcf7_unit_tag", `wpcf7-f${formId}-p1-o1`); // Unit tag
+    formData.append("_wpcf7_version", "6.0.6"); // Plugin version
+
+    const endpoint = `https://re-hub.com.my/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`;
+
+    fetch(endpoint, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "mail_sent") {
+          contactForm.reset();
+          successMessage.style.display = "flex";
+        } else {
+          console.log("Validation/Spam Errors:", data.invalid_fields);
+          errorMessage.style.display = "flex";
+          // If spam is suspected, CF7 will return a status of 'spam'
+          if (data.status === "spam") {
+            errorMessage.innerText = "Spam detected. Please try again.";
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Submit Error:", error);
+        alert("Something went wrong. Please try again later.");
+      })
+      .finally(() => {
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.innerText = "Submit";
+        // Reset reCAPTCHA so the user can try again if there was an error
+        grecaptcha.reset();
+        submiting = false;
+      });
+  };
+</script>

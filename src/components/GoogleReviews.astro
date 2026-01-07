@@ -1,0 +1,177 @@
+---
+import "@splidejs/splide/css";
+---
+
+<section class="reviews">
+  <div class="section_content pad col">
+    <div class="section_title col">
+      <h5 data-aos="flip-up">"What people say about us"</h5>
+      <h1 data-aos="fade-right">
+        <span class="latte">OUR</span><span class="orange"> REVIEWS</span>
+      </h1>
+    </div>
+  </div>
+  <div class="section_content review_header row pad">
+    <div class="stars row"></div>
+    <div>
+      <span id="rating">?</span> rating of <span id="total_rating">?</span> reviews
+    </div>
+    <a
+      href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,,"
+      target="_blank"
+      class="cta_btn">Leave a Review</a
+    >
+  </div>
+  <div class="section_content review_slider splide pad">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <!-- Reviews will be populated here -->
+      </ul>
+    </div>
+  </div>
+  <div class="section_content review_loading colc">
+    <div class="loader"></div>
+  </div>
+  <div class="section_content review_error colc" style="display:none">
+    <span>↻ Try Again</span>
+    <p class="error_message"></p>
+  </div>
+</section>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFmRhlvRGOnI6s4Y51KQvhSOTpzB0hSI&libraries=places"
+  async
+  defer></script>
+<script>
+  import Splide from "@splidejs/splide";
+  // Replace with your actual Place ID
+  const PLACE_ID = "ChIJ0duttd5PzDERCi9bKg5glAc";
+
+  const loading_div = document.querySelector(".review_loading");
+  const review_error = document.querySelector(".review_error");
+
+  let service: string;
+
+  function initMap() {
+    // Initialize service (using a dummy div as it doesn't need a visible map)
+    service = new google.maps.places.PlacesService(
+      document.createElement("div")
+    );
+    fetchReviews(); // Initial call
+  }
+
+  function fetchReviews() {
+    loading_div.style.display = "flex";
+    review_error.style.display = "none";
+
+    const request = {
+      placeId: PLACE_ID,
+      fields: ["reviews", "name", "rating", "user_ratings_total"],
+    };
+
+    service.getDetails(request, (place, status) => {
+      let errorMsg = "";
+      // 1. Check if the request was successful
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        if (place.reviews && place.reviews.length > 0) {
+          // console.log("Reviews found:", place.reviews);
+          populateReviews(place);
+          return;
+        } else {
+          console.warn("Place found, but it has no reviews.");
+          errorMsg = "No reviews available for this place.";
+        }
+      }
+
+      // 2. Handle Specific Error Cases
+      else if (status === google.maps.places.PlacesServiceStatus.NOT_FOUND) {
+        console.error("Error: The Place ID provided does not exist.");
+        errorMsg = "The Place ID provided does not exist.";
+      } else if (
+        status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT
+      ) {
+        console.error("Error: You have exceeded your Google Maps API quota.");
+        errorMsg = "You have exceeded your Google Maps API quota.";
+      } else if (
+        status === google.maps.places.PlacesServiceStatus.REQUEST_DENIED
+      ) {
+        console.error("Error: API Key is invalid or Billing is not enabled.");
+        errorMsg = "API Key is invalid or Billing is not enabled.";
+      } else {
+        console.error(
+          "An unknown error occurred with Google Places API:",
+          status
+        );
+        errorMsg =
+          "An unknown error occurred while fetching reviews. Please try again later.";
+      }
+      populateError(errorMsg);
+    });
+  }
+
+  function populateError(message) {
+    loading_div.style.display = "none";
+    const error_message = document.querySelector(
+      ".review_error .error_message"
+    );
+    error_message.innerText = message;
+    review_error.style.display = "flex";
+    review_error.onclick = fetchReviews;
+  }
+
+  function populateReviews(place) {
+    loading_div.style.display = "none";
+    const splide__list = document.querySelector(".splide__list");
+    const total_rating = document.getElementById("total_rating");
+    const rating = document.getElementById("rating");
+    const stars = document.querySelector(".review_header .stars");
+
+    total_rating.innerText = place.user_ratings_total;
+    rating.innerText = place.rating.toFixed(1);
+    stars.innerHTML =
+      "★".repeat(Math.floor(place.rating)) +
+      "✰".repeat(5 - Math.floor(place.rating));
+
+    splide__list.innerHTML = "";
+
+    place.reviews.forEach((review) => {
+      const review_card = document.createElement("li");
+      review_card.classList.add("review_card");
+      review_card.classList.add("col");
+      review_card.classList.add("splide__slide");
+
+      review_card.innerHTML = `
+                <div class="stars row">${"★".repeat(Math.floor(review.rating))}${"✰".repeat(5 - Math.floor(review.rating))}</div>
+                <a class="link row" href="https://www.google.com/search?q=re-hub&sca_esv=8e96b00d1f23abc8&sxsrf=AE3TifOzofMDQjT1J2tlqWG5GesxfL1GVQ%3A1766917094259&ei=5gNRadbED6fh4-EPu7bDiAY&oq=re&gs_lp=Egxnd3Mtd2l6LXNlcnAiAnJlKgIIATIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIKECMY8AUYJxjJAjILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhYQLhiABBixAxjRAxhDGIMBGMcBGIoFMgoQABiABBhDGIoFSMINUIoCWLsCcAJ4AZABAZgB9AOgAYgKqgEHMy0xLjEuMbgBAcgBAPgBAZgCBKACpwbCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICEBAjGPAFGIAEGCcYyQIYigXCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQOYAwCIBgGQBgqSBwcyLjMtMS4xoAfHI7IHBTMtMS4xuAeeBsIHBTAuMS4zyAcQgAgA&sclient=gws-wiz-serp#lrd=0x31cc4fdeb5addbd1:0x794600e2a5b2f0a,1,,,," target="_blank">
+                    <img src="assets/img/google.webp" alt="">
+                </a>
+                <p>
+                    ${review.text}
+                </p>
+                <strong>${review.author_name}</strong>
+                <img class="avatar" src="${review.profile_photo_url}" alt="">
+            `;
+
+      splide__list.appendChild(review_card);
+    });
+
+    new Splide(".review_slider", {
+      type: "loop",
+      perPage: 3,
+      breakpoints: {
+        800: {
+          perPage: 2,
+        },
+        600: {
+          perPage: 1,
+        },
+      },
+      perMove: 1,
+      gap: "1rem",
+      arrows: false,
+      //   paginationDirection: "ttb",
+    }).mount();
+  }
+
+  window.onload = initMap;
+</script>

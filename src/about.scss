@@ -1,0 +1,273 @@
+$max_width: 1440px;
+$accent-color: #f37521;
+$grey: #262626;
+$latte: #fcf6e6;
+
+.about_hero {
+  background-image: url("./assets/img/about_hero.webp");
+  background-size: cover;
+  background-position: bottom;
+  margin: 0;
+  padding: 12rem 2rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(transparent, $grey);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .left_text {
+    white-space: nowrap;
+    margin-bottom: 3rem;
+    z-index: 2;
+  }
+  p {
+    padding-left: 20rem;
+    align-self: flex-end;
+    z-index: 2;
+  }
+}
+
+$carousel-width: 2500px;
+.carousel {
+  width: 100%;
+  margin-top: -5rem;
+  z-index: 2;
+  .carousel_inner {
+    width: 100%;
+    animation: scroll 20s linear infinite;
+    justify-content: flex-start;
+  }
+  img {
+    width: calc($carousel-width / 8); /* Adjust based on your design */
+  }
+  //   &:hover {
+  //     .carousel_inner {
+  //       animation-play-state: paused;
+  //     }
+  //   }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(($carousel-width / 2) * -1));
+  }
+}
+
+.performance {
+  .section_content {
+    gap: 3rem;
+  }
+  .p_cards {
+    margin-top: 4rem;
+    .p_card {
+      text-align: center;
+      padding: 0 2rem;
+      border-right: 1px solid #353434;
+      img {
+        width: 3.5rem;
+        margin-bottom: 1rem;
+      }
+      strong {
+        font-size: 1.5rem;
+      }
+      em {
+        opacity: 0.5;
+      }
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .model {
+    width: 30rem;
+    margin-left: auto;
+    display: grid;
+    grid-template-areas: "stack-layer";
+    place-content: center;
+    img {
+      grid-area: stack-layer;
+      width: 100%;
+    }
+  }
+}
+
+.why {
+  background-color: #fcf6e6;
+  color: $grey;
+  padding: 5rem 0;
+  .list {
+    margin: 1rem 0 2rem;
+    gap: 0.5rem;
+  }
+
+  .why_right {
+    margin-left: auto;
+    width: 50%;
+    max-width: 20rem;
+    justify-content: flex-end;
+    img {
+      width: 100%;
+      z-index: 2;
+      transform-style: preserve-3d;
+      &:last-child {
+        margin-left: -5rem;
+        z-index: 1;
+        margin-top: 5rem;
+      }
+    }
+  }
+}
+
+.vsms {
+  .section_content {
+    max-width: 1200px;
+    gap: 3rem;
+  }
+  .vm_item {
+    gap: 3rem;
+    align-items: flex-end;
+    .model {
+      width: 36rem;
+      display: grid;
+      grid-template-areas: "vsms-stack";
+      place-content: center;
+      img {
+        grid-area: vsms-stack;
+        width: 100%;
+      }
+    }
+
+    .col {
+      flex: 1;
+      img {
+        width: 5rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.end_hero {
+  margin-bottom: 0;
+  background-color: $latte;
+  .section_content {
+    justify-content: center;
+    gap: 2rem;
+  }
+  .cta_btn {
+    margin-top: 1rem;
+  }
+  img {
+    width: 45%;
+    max-width: 36rem;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .performance {
+    .section_content {
+      flex-direction: column;
+      align-items: center;
+
+      .model {
+        margin: 0;
+        width: 20rem;
+      }
+    }
+  }
+
+  .why {
+    .section_content {
+      flex-direction: column-reverse;
+      gap: 3rem;
+      .why_right {
+        margin: 0;
+        justify-content: center;
+      }
+    }
+  }
+
+  .vsms {
+    .vm_item {
+      .model {
+        width: 24rem;
+      }
+      .col {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .about_hero {
+    p {
+      padding-left: 0;
+    }
+  }
+
+  .vsms {
+    .vm_item {
+      flex-direction: column;
+      .model {
+        width: 100%;
+      }
+      .col {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .end_hero {
+    .section_content {
+      flex-direction: column;
+      padding-top: 4rem;
+
+      img {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .performance {
+    .p_cards {
+      flex-direction: column;
+      width: 100%;
+      .p_card {
+        border: none;
+        width: 100%;
+        border-bottom: 1px solid #353434;
+        padding: 2rem 0;
+        position: relative;
+        padding-left: 8rem;
+        align-items: flex-start;
+        text-align: left;
+        img {
+          position: absolute;
+          left: 2rem;
+          top: 50%;
+          translate: 0 -50%;
+        }
+      }
+    }
+  }
+}

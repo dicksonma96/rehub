@@ -8,6 +8,10 @@
   text-decoration: none;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -35,6 +39,7 @@ html {
   background-color: $grey;
   color: white;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .loader {
@@ -72,10 +77,22 @@ html {
   color: white;
   padding: 0.5rem 1rem;
   border: 1px solid $accent-color;
+  border-radius: 0.25rem;
 
   &:hover {
     color: $accent-color;
     background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.cta_btn2 {
+  @extend .cta_btn;
+  background-color: black;
+  border: 1px solid black;
+
+  &:hover {
+    background-color: $accent-color;
+    color: black;
   }
 }
 
@@ -269,6 +286,12 @@ h5 {
     height: 95vh;
     height: 95dvh;
     display: none;
+
+    .active {
+      font-weight: bold;
+      color: $accent-color !important;
+    }
+
     .sm_row {
       margin-top: 2rem;
       gap: 1rem;
@@ -619,6 +642,55 @@ h5 {
   }
 }
 
+dialog {
+  margin: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  z-index: 9999;
+  button {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    outline: none;
+  }
+  .modal_content {
+    border: none;
+    border-radius: 2rem;
+    margin: auto;
+    overflow: hidden;
+    background: linear-gradient(white, $latte);
+    align-items: stretch;
+    border: solid 1px grey;
+    padding: 1rem;
+    box-shadow: inset 0 0.25rem rgba(255, 255, 255, 0.5);
+
+    img {
+      width: 22rem;
+      border-radius: 1rem;
+      object-fit: cover;
+      object-position: center;
+    }
+    .team_info {
+      padding: 2rem;
+      max-width: 36rem;
+      height: 100%;
+
+      .cta_btn {
+        margin-top: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7); /* Standard accessible backdrop */
+  backdrop-filter: blur(4px);
+}
+
 .reviews {
   .stars {
     margin-right: 1rem;
@@ -644,6 +716,7 @@ h5 {
   }
 
   .review_slider {
+    padding-bottom: 3rem;
     .review_card {
       background-color: white;
       border-radius: 1rem;
@@ -751,6 +824,7 @@ h5 {
     width: 100%;
     max-width: 50rem;
     margin-top: 2rem;
+    margin-bottom: 10rem;
     gap: 1rem;
     align-items: flex-end;
 
@@ -779,7 +853,7 @@ h5 {
 
 .footer {
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 0;
   text-align: left;
   margin-bottom: 0;
   .section_content {
@@ -846,6 +920,9 @@ h5 {
 }
 
 @media screen and (max-width: 1150px) {
+  .pad {
+    padding-inline: 3rem;
+  }
   .header {
     nav {
       display: none;
@@ -929,6 +1006,9 @@ h5 {
 
       .info_col {
         width: 100%;
+        br {
+          display: none;
+        }
       }
     }
 
@@ -936,6 +1016,22 @@ h5 {
       flex-direction: column;
       align-items: center;
       text-align: center;
+    }
+  }
+
+  dialog {
+    .close_modal {
+      color: white;
+    }
+    .modal_content {
+      flex-direction: column;
+      img {
+        width: 100%;
+        height: 35rem;
+      }
+      .team_info {
+        padding: 2rem 1rem;
+      }
     }
   }
 }

@@ -1,0 +1,74 @@
+---
+import { navItems } from "./Header.astro";
+---
+
+<section class="footer col">
+  <div class="section_content contact_footer col">
+    <h1 data-aos="fade-right">
+      FOR FURTHER ENQUIRIES CONTACT <br />
+      <span class="orange" href="#"> hello.rehub@gmail.com</span>
+    </h1>
+  </div>
+  <div class="section_content footer_info pad row">
+    <div class="sm_col col">
+      <div class="col">
+        <img class="logo" src="assets/img/logo.webp" alt="Re-Hub Logo" />
+        <strong>“Where recovery meets performance”</strong>
+      </div>
+
+      <div class="sm_row row">
+        <a
+          class="row"
+          href="https://www.facebook.com/profile.php?id=61576003985372&mibextid=wwXIfr&rdid=252qaGp8eWaWn7kH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AgrWzyxK8%2F%3Fmibextid%3DwwXIfr#"
+          target="_blank"
+        >
+          <img src="assets/img/fb.webp" alt="" />
+        </a>
+        <a
+          class="row"
+          href="https://www.instagram.com/rehub_pj?igsh=eWtnY2huYnhlcDRw"
+          target="_blank"
+        >
+          <img src="assets/img/ig.webp" alt="" />
+        </a>
+      </div>
+    </div>
+
+    <div class="info_col col">
+      <strong class="orange">Our Locations</strong>
+      <p>
+        Lot S107 & S108, Second Floor, <br /> Centrepoint Bandar Utama, <br />3,
+        Lebuh Bandar Utama,
+        <br />Bandar Utama, Petaling Jaya, <br />47800, Selangor
+      </p>
+    </div>
+
+    <div class="info_col col">
+      <strong class="orange">Menu</strong>
+
+      {
+        navItems.map((item) => (
+          <>
+            {item.submenu ? (
+              /* Dropdown Version */
+              item.submenu.map((sub) => <a href={sub.href}>{sub.name}</a>)
+            ) : (
+              /* Standard Link Version */
+              <a href={item.href}>{item.name}</a>
+            )}
+          </>
+        ))
+      }
+    </div>
+
+    <div class="info_col col">
+      <strong class="orange">Find Us</strong>
+      <a href="mailto:hello.rehub@gmail.com">hello.rehub@gmail.com</a>
+      <a href="tel:+6017-6158116">+6017-6158116</a>
+    </div>
+  </div>
+  <footer class="section_content row">
+    <span>© 2025 Re-Hub, All Rights Reserved</span>
+    <span>Third Project Sdn Bhd 202501009586 (1611000-T)</span>
+  </footer>
+</section>
