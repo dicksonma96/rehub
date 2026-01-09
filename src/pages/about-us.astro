@@ -2,35 +2,53 @@
 import { whatsapp_href } from "../site_config.js";
 import MainLayout from "../layouts/MainLayout.astro";
 import "../about.scss";
-import Image from "../components/Image.astro";
 
 // Carousel.astro
 const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
 ---
 
 <MainLayout>
-  <section class="about_hero">
-    <div class="section_content col">
-      <div class="col left_text">
-        <h5 data-aos="flip-up">"Where recovery meets performance"</h5>
-        <h1 data-aos="fade-right">
-          <span class="latte">ABOUT US</span>
-          <br />
+  <section class="about_hero row">
+    <div class="section_content pad colc">
+      <div class="colc left_text">
+        <h5 data-aos="flip-up">
+          "Re-Hub isn’t just our name — it’s our philosophy."
+        </h5>
+        <h1 data-aos="fade-up">
+          <span class="latte">ABOUT </span>
           <span class="orange">RE-HUB</span>
         </h1>
       </div>
-      <p>
-        "Re-Hub is an integrated movement centre bridging the gap between rehab
-        and performance, dedicated to empowering our community with accessible,
-        expert-led care for every body."
-        <br /><br />
-        "We believe that quality care should be accessible to all. As part of our
-        commitment to the community. Re-Hub dedicates time and resources to support
-        individuals in genuine need — especially those facing financial hardship.""
-      </p>
+      <div class="about_cards row">
+        <div class="about_card col" data-aos="fade-in">
+          <div class="tab row">A NEW BEGINNING</div>
+          <h1 class="latte">RE :</h1>
+          <p>
+            Rejuvenation. Recovery. Rehabilitation. Renewal. <br /> "Re" stands for
+            a comeback — physically, mentally and emotionally
+          </p>
+          <img src="/assets/img/re_bg.png" alt="RE" />
+        </div>
+        <div class="about_card col" data-aos="fade-in">
+          <div class="tab row">A CENTRAL PLACE</div>
+          <h1 class="latte">HUB :</h1>
+          <p>
+            A space where physiotherapy and performance training come together
+            to help people come back stronger than ever.
+          </p>
+          <img src="/assets/img/hub_bg.png" alt="hub" />
+        </div>
+      </div>
+
+      <div class="scroll_down colc">
+        <div class="mouse colc">
+          <div class="scroller"></div>
+        </div>
+        <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+      </div>
     </div>
   </section>
-  <section class="carousel row">
+  <!-- <section class="carousel row">
     <div class="carousel_inner row">
       {
         items.map((item: number) => (
@@ -47,31 +65,31 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
         ))
       }
     </div>
-  </section>
+  </section> -->
   <section class="performance">
     <div class="section_content pad row">
       <div class="p_left col">
         <h1 data-aos="fade-right">
-          <span class="latte">PERFORMANCE IS FOR</span>
-          <br />
-          <span class="orange">EVERYBODY</span>
+          <span class="latte">WHY WE </span>
+          <span class="orange">EXIST</span>
         </h1>
         <p>
-          "From elite athletes to daily movers. Performance is personal, We help
-          you master yours."
+          "To guide your journey back — from pain, injury or limitation <br /> — into
+          strength, confidence, and performance."
         </p>
 
         <div class="p_cards row">
-          <div class="p_card colc">
-            <img src="/assets/img/performance1.webp" alt="" />
-            <strong>Reach <br /> Your Peak</strong>
-            <em>(Elite Sports / Strength)</em>
-          </div>
           <div class="p_card colc">
             <img src="/assets/img/performance2.webp" alt="" />
             <strong>Regain <br /> Your Freedom</strong>
             <em>(Stroke / Injury Rehab)</em>
           </div>
+          <div class="p_card colc">
+            <img src="/assets/img/performance1.webp" alt="" />
+            <strong>Reach <br /> Your Peak</strong>
+            <em>(Elite Sports / Strength)</em>
+          </div>
+
           <div class="p_card colc">
             <img src="/assets/img/performance3.webp" alt="" />
             <strong>Stay <br /> Independent</strong>
@@ -86,14 +104,12 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
         <img
           data-aos="fade-right"
           data-aos-delay="250"
-          data-aos-offset="200"
           src="/assets/img/performance_model2.webp"
           alt=""
         />
         <img
           data-aos="fade-left"
-          data-aos-delay="200"
-          data-aos-offset="500"
+          data-aos-delay="500"
           src="/assets/img/performance_model3.webp"
           alt=""
         />
@@ -106,19 +122,17 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
       <div class="why_left col">
         <h5 data-aos="flip-up">"One-on-one physiotherapy sessions"</h5>
         <h1 data-aos="fade-right">
-          <span class="grey">WHY CHOOSE</span>
+          <span class="latte">WHY CHOOSE</span>
           <br />
           <span class="orange">RE-HUB</span>
         </h1>
 
-        <div class="col list">
-          <span>✅ Customised fitness and rehab plans</span>
-          <span
-            >✅ Certified Malaysian physiotherapists and fitness coaches</span
-          >
-          <span>✅ Convenient, integrated care under one roof</span>
-        </div>
-        <a class="cta_btn2" href={whatsapp_href()}>Book An Appointment</a>
+        <ul class="col list">
+          <li>Customised fitness and rehab plans</li>
+          <li>Certified Malaysian physiotherapists and fitness coaches</li>
+          <li>Convenient, integrated care under one roof</li>
+        </ul>
+        <a class="cta_btn" href={whatsapp_href()}>Book An Appointment</a>
       </div>
       <div class="why_right row">
         <img class="tiltCard" src="/assets/img/why1.webp" alt="" />
@@ -126,7 +140,74 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
       </div>
     </div>
   </section>
-  <section class="vsms">
+  <section class="grid_cards colc">
+    <div class="section_title colc">
+      <h5 data-aos="flip-up">“Elevating your comeback to your peak.”</h5>
+      <h1 data-aos="fade-right">
+        <span class="latte">WHERE RECOVERY</span>
+        <br />
+        <span class="orange">MEETS PERFORMANCE</span>
+      </h1>
+    </div>
+    <div class="grids pad row">
+      <img src="/assets/img/grid_banner.jpg" alt="" class="grid_img" />
+      <div class="cards col">
+        <div class="card col">
+          <div class="tag" data-aos="flip-up">⛨ GOES BEYOND TREATMENT</div>
+          <h1 data-aos="fade-right">
+            <span class="grey">OUR </span><span class="orange">VISION</span>
+          </h1>
+          <p>
+            We believe quality care should be accessible to all, and we actively
+            dedicate time and effort to community outreach and charity work.
+          </p>
+        </div>
+        <div class="card col">
+          <div class="tag" data-aos="flip-up">⛨ ALL UNDER ONE ROOF</div>
+          <h1 data-aos="fade-right">
+            <span class="grey">WHAT </span><span class="orange">WE OFFER</span>
+          </h1>
+          <ul class="list">
+            <li>
+              <a class="row" href="/physiotherapy"
+                >Physiotherapy <img
+                  src="/assets/img/external_link.svg"
+                  alt="link"
+                /></a
+              >
+            </li>
+            <li>
+              <a class="row" href="/strength-conditioning"
+                >Strength & Conditioning <img
+                  src="/assets/img/external_link.svg"
+                  alt="link"
+                /></a
+              >
+            </li>
+
+            <li>
+              <a class="row" href="/golf-sports-performance"
+                >Golf & Sports Performance <img
+                  src="/assets/img/external_link.svg"
+                  alt="link"
+                /></a
+              >
+            </li>
+            <li>
+              <a class="row" href="/movement-assessments"
+                >Movement Assessments <img
+                  src="/assets/img/external_link.svg"
+                  alt="link"
+                /></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="vsms">
     <div class="section_content pad col">
       <div class="vm_item row">
         <div class="model row">
@@ -197,12 +278,12 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
       </div>
       <img src="/assets/img/group_photo.webp" alt="" />
     </div>
-  </section>
+  </section> -->
 </MainLayout>
 
 <script>
   const cards = document.querySelectorAll(
-    ".tiltCard"
+    ".tiltCard",
   ) as NodeListOf<HTMLImageElement>;
 
   cards.forEach((card: HTMLImageElement) => {
