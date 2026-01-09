@@ -2,6 +2,7 @@
 import { whatsapp_href } from "../site_config.js";
 import MainLayout from "../layouts/MainLayout.astro";
 import "../about.scss";
+import Image from "../components/Image.astro";
 
 // Carousel.astro
 const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
@@ -62,17 +63,17 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
 
         <div class="p_cards row">
           <div class="p_card colc">
-            <img src="./assets/img/performance1.webp" alt="" />
+            <img src="/assets/img/performance1.webp" alt="" />
             <strong>Reach <br /> Your Peak</strong>
             <em>(Elite Sports / Strength)</em>
           </div>
           <div class="p_card colc">
-            <img src="./assets/img/performance2.webp" alt="" />
+            <img src="/assets/img/performance2.webp" alt="" />
             <strong>Regain <br /> Your Freedom</strong>
             <em>(Stroke / Injury Rehab)</em>
           </div>
           <div class="p_card colc">
-            <img src="./assets/img/performance3.webp" alt="" />
+            <img src="/assets/img/performance3.webp" alt="" />
             <strong>Stay <br /> Independent</strong>
             <em>(Seniors / Youth Motor Skills)</em>
           </div>
@@ -80,20 +81,20 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
       </div>
 
       <div class="model">
-        <img src="./assets/img/performance_model.webp" alt="" />
+        <img src="/assets/img/performance_model.webp" alt="" />
 
         <img
           data-aos="fade-right"
           data-aos-delay="250"
           data-aos-offset="200"
-          src="./assets/img/performance_model2.webp"
+          src="/assets/img/performance_model2.webp"
           alt=""
         />
         <img
           data-aos="fade-left"
           data-aos-delay="200"
           data-aos-offset="500"
-          src="./assets/img/performance_model3.webp"
+          src="/assets/img/performance_model3.webp"
           alt=""
         />
       </div>
@@ -120,8 +121,8 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
         <a class="cta_btn2" href={whatsapp_href()}>Book An Appointment</a>
       </div>
       <div class="why_right row">
-        <img class="tiltCard" src="./assets/img/why1.webp" alt="" />
-        <img class="tiltCard" src="./assets/img/why2.webp" alt="" />
+        <img class="tiltCard" src="/assets/img/why1.webp" alt="" />
+        <img class="tiltCard" src="/assets/img/why2.webp" alt="" />
       </div>
     </div>
   </section>
@@ -129,17 +130,17 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
     <div class="section_content pad col">
       <div class="vm_item row">
         <div class="model row">
-          <img src="./assets/img/vision_model_bg.webp" alt="" />
+          <img src="/assets/img/vision_model_bg.webp" alt="" />
 
           <img
             data-aos="fade-up"
             data-aos-offset="200"
-            src="./assets/img/vision_model.webp"
+            src="/assets/img/vision_model.webp"
             alt=""
           />
         </div>
         <div class="col">
-          <img src="./assets/img/vision_icon.webp" alt="vision" />
+          <img src="/assets/img/vision_icon.webp" alt="vision" />
           <span>What inspired us</span>
           <h1>
             <span class="latte">OUR</span><br /><span class="orange"
@@ -158,16 +159,16 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
 
       <div class="vm_item row">
         <div class="model row">
-          <img src="./assets/img/mission_model_bg.webp" alt="" />
+          <img src="/assets/img/mission_model_bg.webp" alt="" />
           <img
             data-aos="fade-left"
             data-aos-offset="200"
-            src="./assets/img/mission_model.webp"
+            src="/assets/img/mission_model.webp"
             alt=""
           />
         </div>
         <div class="col">
-          <img src="./assets/img/mission_icon.webp" alt="mission" />
+          <img src="/assets/img/mission_icon.webp" alt="mission" />
           <span>What we do</span>
           <h1>
             <span class="latte">OUR</span><br /><span class="orange"
@@ -194,7 +195,7 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
         <h1 class="orange" data-aos="fade-right">PERFORMANCE</h1>
         <a class="cta_btn" href={whatsapp_href()}>Book An Appointment</a>
       </div>
-      <img src="./assets/img/group_photo.webp" alt="" />
+      <img src="/assets/img/group_photo.webp" alt="" />
     </div>
   </section>
 </MainLayout>

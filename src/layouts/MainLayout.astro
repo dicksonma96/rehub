@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import WhatsAppBtn from "../components/WhatAppButton.astro";
 import "../style.scss";
 const { title = "Default Title" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ const { title = "Default Title" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Re-Hub</title>
-    <link rel="stylesheet" href="aos.css" />
+    <link rel="stylesheet" href={base + "/aos.css"} />
 
     <meta charset="UTF-8" />
     <meta
@@ -27,21 +28,21 @@ const { title = "Default Title" } = Astro.props;
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="assets/apple-touch-icon.png"
+      href={base + "/assets/apple-touch-icon.png"}
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="assets/favicon-32x32.png"
+      href={base + "/assets/favicon-32x32.png"}
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/favicon-16x16.png"
+      href={base + "/assets/favicon-16x16.png"}
     />
-    <link rel="manifest" href="assets/site.webmanifest" />
+    <link rel="manifest" href={base + "/assets/site.webmanifest"} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Re-Hub" />

@@ -4,8 +4,11 @@ import { whatsapp_href } from "../site_config";
 
 // A helper to check if the link is active
 // Remove trailing slashes to ensure /about/ matches /about
-const isActive = (path: string) => pathname === path || pathname === path + "/";
+const base = import.meta.env.BASE_URL;
+const cleanBase = base.endsWith("/") ? base.slice(0, -1) : base;
 
+const isActive = (path: string) =>
+  pathname === cleanBase + path || pathname === cleanBase + path + "/";
 export const navItems = [
   { name: "Home", href: "/" },
   {
@@ -41,7 +44,7 @@ export const navItems = [
                   {item.submenu.map((sub) => (
                     <a
                       class={`link ${isActive(sub.href) ? "active" : ""}`}
-                      href={sub.href}
+                      href={cleanBase + sub.href}
                     >
                       {sub.name}
                     </a>
@@ -52,7 +55,7 @@ export const navItems = [
               /* Standard Link Version */
               <a
                 class={`link row ${isActive(item.href) ? "active" : ""}`}
-                href={item.href}
+                href={cleanBase + item.href}
               >
                 {item.name}
               </a>
@@ -75,7 +78,7 @@ export const navItems = [
             item.submenu.map((sub) => (
               <a
                 class={`link row ${isActive(sub.href) ? "active" : ""}`}
-                href={sub.href}
+                href={cleanBase + sub.href}
               >
                 {sub.name}
               </a>
@@ -84,7 +87,7 @@ export const navItems = [
             /* Standard Link Version */
             <a
               class={`link row ${isActive(item.href) ? "active" : ""}`}
-              href={item.href}
+              href={cleanBase + item.href}
             >
               {item.name}
             </a>
