@@ -24,6 +24,7 @@ export const navItems = [
   { name: "About Us", href: "/about-us" },
   { name: "Our Team", href: "/#team" }, // Using # for same-page anchors
   { name: "Contact Us", href: "/#contact" },
+  { name: "Blog", href: "/blogs" },
 ];
 ---
 
@@ -39,7 +40,7 @@ export const navItems = [
               /* Dropdown Version */
               <div class={`link row ${isActive(item.href) ? "active" : ""}`}>
                 {item.name}
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined dropdown">
                   keyboard_arrow_down
                 </span>
                 <div class="submenu col">

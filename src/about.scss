@@ -24,7 +24,7 @@ $latte: #fcf6e6;
     z-index: 1;
   }
 
-  &>* {
+  & > * {
     position: relative;
     z-index: 2;
   }
@@ -55,12 +55,11 @@ $latte: #fcf6e6;
         right: 2rem;
         top: 1rem;
         height: 60%;
-
       }
 
       .tab {
         font-family: Arial, Helvetica, sans-serif;
-        background-color: #2C2C2C;
+        background-color: #2c2c2c;
         border: solid 1px #383838;
         color: $accent-color;
         padding: 0.25rem 0.5rem;
@@ -184,23 +183,17 @@ $carousel-width: 2500px;
     justify-content: flex-end;
 
     img {
-      width: 20rem;
+      width: 40rem;
       z-index: 2;
       transform-style: preserve-3d;
-
-      &:last-child {
-        margin-left: -5rem;
-        z-index: 1;
-        margin-top: 5rem;
-      }
+      border-radius: 2rem;
     }
   }
 }
 
 .grid_cards {
-
   .grids {
-    max-width: 800px;
+    max-width: 1100px;
     align-items: stretch;
     gap: 1rem;
     margin: 5rem 0;
@@ -215,13 +208,12 @@ $carousel-width: 2500px;
 
   .cards {
     gap: 1rem;
-
   }
 
   .card {
     width: 100%;
     background: linear-gradient(to right, $latte, white);
-    padding: 2rem;
+    padding: 2rem 3rem;
     border-radius: 2rem;
     color: #000000;
 
@@ -253,7 +245,6 @@ $carousel-width: 2500px;
     }
   }
 }
-
 
 // .vsms {
 //   .section_content {
@@ -325,12 +316,16 @@ $carousel-width: 2500px;
       flex-direction: column;
       gap: 3rem;
 
+      .why_left {
+        width: 30rem;
+      }
+
       .why_right {
         margin: 0;
         justify-content: center;
 
         img {
-          width: 60%;
+          width: 85%;
         }
       }
     }
@@ -363,6 +358,9 @@ $carousel-width: 2500px;
   }
 
   .grid_cards {
+    h1 {
+      font-size: 2.75rem;
+    }
     .grids {
       flex-direction: column;
 

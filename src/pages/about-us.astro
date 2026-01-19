@@ -2,6 +2,30 @@
 import { whatsapp_href } from "../site_config.js";
 import MainLayout from "../layouts/MainLayout.astro";
 import "../about.scss";
+import GoogleReviews from "../components/GoogleReviews.astro";
+
+const why_choose = [
+  {
+    name: "Integrated care, one journey",
+    desc: "We combine physiotherapy, movement training, and performance coaching in one continuous journey — not isolated sessions.",
+  },
+  {
+    name: "Movement-first approach",
+    desc: "We focus on how you move — not just where it hurts.",
+  },
+  {
+    name: "Clinician-led, evidence-based programs",
+    desc: "Every session is guided by certified physiotherapists and performance coaches.",
+  },
+  {
+    name: "Personalised goals, not templates",
+    desc: "Your plan is built around your body, goals, and sport.",
+  },
+  {
+    name: "Built for real life & sport ",
+    desc: "From daily movement to athletic performance.",
+  },
+];
 
 // Carousel.astro
 const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
@@ -128,18 +152,31 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
         </h1>
 
         <ul class="col list">
-          <li>Customised fitness and rehab plans</li>
-          <li>Certified Malaysian physiotherapists and fitness coaches</li>
-          <li>Convenient, integrated care under one roof</li>
+          {
+            why_choose.map((info) => (
+              <li>
+                <div class="col">
+                  <span>{info.name}</span>
+                  <div class="content-wrapper">
+                    <div class="content">
+                      <em>{info.desc}</em>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
         </ul>
         <a class="cta_btn" href={whatsapp_href()}>Book An Appointment</a>
       </div>
       <div class="why_right row">
-        <img class="tiltCard" src="/assets/img/why1.webp" alt="" />
-        <img class="tiltCard" src="/assets/img/why2.webp" alt="" />
+        <img class="tiltCard" src="/assets/img/group_photo.webp" alt="" />
       </div>
     </div>
   </section>
+
+  <GoogleReviews />
+
   <section class="grid_cards colc">
     <div class="section_title colc">
       <h5 data-aos="flip-up">“Elevating your comeback to your peak.”</h5>
@@ -150,7 +187,7 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
       </h1>
     </div>
     <div class="grids pad row">
-      <img src="/assets/img/grid_banner.jpg" alt="" class="grid_img" />
+      <img src="/assets/img/grid_banner.jpg" alt="" class="grid_img tiltCard" />
       <div class="cards col">
         <div class="card col">
           <div class="tag" data-aos="flip-up">⛨ GOES BEYOND TREATMENT</div>
@@ -283,7 +320,7 @@ const { items = [1, 2, 3, 4, 5, 6, 7, 8] } = Astro.props;
 
 <script>
   const cards = document.querySelectorAll(
-    ".tiltCard",
+    ".tiltCard"
   ) as NodeListOf<HTMLImageElement>;
 
   cards.forEach((card: HTMLImageElement) => {

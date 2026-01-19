@@ -81,6 +81,7 @@ html {
   padding: 0.5rem 1rem;
   border: 1px solid $accent-color;
   border-radius: 0.25rem;
+  text-align: center;
 
   &:hover {
     color: $accent-color;
@@ -100,16 +101,41 @@ html {
 }
 
 .list {
-  gap: 0.5rem;
+  gap: 1rem;
   list-style: none;
   padding: 0;
 
   li {
-    background-image: url("/assets/img/li_icon.png");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 1rem 1rem;
-    padding-left: 1.5rem;
+    display: flex;
+    align-items: start;
+    &::before {
+      content: "";
+      background-image: url("/assets/img/li_icon.png");
+      background-size: cover;
+      min-width: 1rem;
+      min-height: 1rem;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+    }
+
+    .content-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.2s ease-out;
+      overflow: hidden;
+      .content {
+        min-height: 0;
+        em {
+          color: grey;
+        }
+      }
+    }
+
+    &:hover {
+      .content-wrapper {
+        grid-template-rows: 1fr;
+      }
+    }
   }
 }
 
@@ -136,7 +162,6 @@ html {
   }
 
   @keyframes scrolldown {
-
     0%,
     100% {
       transform: none;
@@ -238,6 +263,10 @@ h5 {
   z-index: 10;
   transition: 0.3s 0.3s;
 
+  & > * {
+    z-index: 2;
+  }
+
   .logo {
     width: 10rem;
   }
@@ -248,20 +277,23 @@ h5 {
     .link {
       color: white;
       font-size: 1rem;
-      width: 8rem;
       text-align: center;
       justify-content: center;
       cursor: pointer;
       position: relative;
       white-space: nowrap;
-      padding: 1rem 0;
+      padding: 1rem 1.5rem;
+
+      .dropdown {
+        position: absolute;
+        right: 0;
+      }
 
       .submenu {
         display: none;
         position: absolute;
         top: 100%;
-        left: 50%;
-        translate: -50% 0;
+        left: 1.5rem;
         background-color: rgba(0, 0, 0, 0.9);
         padding: 1rem 0.5rem;
         min-width: 12rem;
@@ -293,7 +325,7 @@ h5 {
   }
 
   .cta_btn {
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
 
   .mobile_menu_btn {
@@ -304,12 +336,13 @@ h5 {
   .mobile_nav {
     background: rgba(0, 0, 0, 0.9);
     position: absolute;
-    top: 100%;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 95vh;
-    height: 95dvh;
+    height: 100vh;
+    height: 100dvh;
     display: none;
+    z-index: 1;
 
     .active {
       font-weight: bold;
@@ -332,6 +365,7 @@ h5 {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    display: none;
 
     .link {
       font-size: 2rem;
@@ -408,12 +442,14 @@ h5 {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
   }
 
   .help_card {
     position: relative;
     overflow: hidden;
     flex: 1;
+    border-radius: 0.5rem;
 
     &::after {
       content: "";
@@ -423,7 +459,7 @@ h5 {
       width: 100%;
       height: 100%;
       background: linear-gradient(transparent, black);
-      opacity: 0;
+      opacity: 1;
       transition: 0.2s opacity ease-in-out;
     }
 
@@ -460,12 +496,17 @@ h5 {
       transition: top 0.3s ease-in-out;
     }
 
+    .hover_wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s ease-out;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+
     .hover_show {
       align-items: flex-start;
-      //   height: 6rem;
-      height: 0;
       overflow: hidden;
-      transition: 0.2s height ease-in-out;
     }
 
     .cta_btn {
@@ -473,15 +514,12 @@ h5 {
     }
 
     &:hover {
-      .hover {}
-
-      &::after {
-        opacity: 1;
+      .hover {
+        backdrop-filter: blur(2px);
       }
-
-      .hover_show {
+      .hover_wrapper {
         transition-delay: 0.3s;
-        height: 7rem;
+        grid-template-rows: 1fr;
       }
     }
   }
@@ -495,7 +533,7 @@ h5 {
     position: relative;
     align-items: flex-end;
 
-    &>* {
+    & > * {
       z-index: 2;
     }
 
@@ -518,19 +556,13 @@ h5 {
       background-color: black;
       border-radius: 0.5rem;
       padding: 1rem 2rem;
-      color: white;
+      color: #929292;
       margin-bottom: 1rem;
       overflow: hidden;
       transition: 0.2s;
       position: relative;
 
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-          width: (30rem - ($i * 1rem));
-        }
-      }
-
-      &>* {
+      & > * {
         z-index: 3;
       }
 
@@ -554,7 +586,7 @@ h5 {
         position: absolute;
         top: 0;
         left: 0;
-        width: 60%;
+        width: 50%;
         height: 100%;
         background: linear-gradient(to left, black 20%, transparent);
         z-index: 2;
@@ -622,7 +654,7 @@ h5 {
     flex: 1;
     min-width: 250px;
 
-    &>* {
+    & > * {
       z-index: 2;
     }
 
@@ -972,9 +1004,14 @@ dialog::backdrop {
     background-image: url("/assets/img/footer_bg.webp");
     background-size: cover;
     background-position: center;
-    height: 16rem;
+    height: 18rem;
     text-align: center;
     justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    a {
+      color: white;
+    }
   }
 
   footer {
@@ -1016,6 +1053,11 @@ dialog::backdrop {
 
     .mobile_menu_btn {
       display: block;
+    }
+  }
+  .header_mob {
+    .mobile_nav {
+      display: flex;
     }
   }
 
@@ -1128,7 +1170,6 @@ dialog::backdrop {
 }
 
 @media screen and (max-width: 600px) {
-
   body,
   html {
     font-size: 2.75vw;
@@ -1160,14 +1201,14 @@ dialog::backdrop {
     .section_content {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
     .help_card {
-      &:hover {
-        .hover_show {
-          transition-delay: 0.3s;
-          height: 8.5rem;
-        }
+      font-size: 0.75rem;
+      border: 0;
+      .hover {
+        padding: 1rem;
       }
     }
   }
