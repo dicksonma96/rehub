@@ -412,13 +412,14 @@ h5 {
     translate: -50% 0;
   }
 
-  img {
+  .bg_video {
     position: absolute;
     left: 50%;
     translate: -50% 0;
     top: 0;
     width: 1920px;
     z-index: 1;
+    object-fit: cover;
   }
 
   &::after {
