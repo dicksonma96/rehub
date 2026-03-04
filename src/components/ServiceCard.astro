@@ -1,6 +1,6 @@
 ---
 import { whatsapp_href } from "../site_config";
-const { name, description, img } = Astro.props.info;
+const { name, desc, img } = Astro.props.info;
 ---
 
 <div class="service_card col">
@@ -8,7 +8,7 @@ const { name, description, img } = Astro.props.info;
 
   <div class="info col">
     <strong>{name}</strong>
-    <p>{description}</p>
+    {desc && <p>{desc}</p>}
     <br />
     <a
       href={whatsapp_href(`Hi, I would like to enquire about ${name}`)}

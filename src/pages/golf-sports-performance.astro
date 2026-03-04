@@ -2,48 +2,48 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import "../service.scss";
 import ServiceCard from "../components/ServiceCard.astro";
-import { physiotherapy } from "../services";
-import { whatsapp_href } from "../site_config.js";
+import { sports_golf } from "../services";
+import { whatsapp_href } from "../site_config";
 ---
 
-<MainLayout title="Physiotherapy">
-  <section class="service_banner physio_banner pad">
+<MainLayout title="Sports & Golf Performance">
+  <section class="service_banner sports_golf_banner pad">
     <div class="section_content col">
       <div class="col">
         <h1 data-aos="fade-right">
           <span class="latte">RE-HUB</span>
           <br />
-          <span class="orange">PHYSIOTHERAPY</span>
+          <span class="orange">SPORTS & GOLF PERFORMANCE</span>
         </h1>
         <br />
         <p>
-          "Our physiotherapy services combine hands-on treatments, advanced
-          modalities, and personalized care plans to relieve pain, restore
-          mobility, and support recovery—whether you're healing from injury,
-          managing chronic conditions, or improving overall physical function."
+          "Our sports and golf performance programs are designed to help
+          athletes and active individuals move efficiently, build sport-specific
+          strength, and perform better — while reducing injury risk."
         </p>
         <div class="tag">THIS IS FOR YOU IF YOU</div>
         <div class="row for_you">
           <div class="for_you_item row">
             <img
-              src="/assets/img/physio_foryou1.png"
-              alt="Have persistent or recurring  pain"
+              src="/assets/img/golf_foryou1.png"
+              alt="Play sport or golf regularly"
             />
-            <p>Have persistent or <br /> recurring pain</p>
+            <p>Play sport or golf <br /> regularly</p>
           </div>
           <div class="for_you_item row">
             <img
-              src="/assets/img/physio_foryou2.png"
-              alt="Are recovering from an injury"
+              src="/assets/img/golf_foryou2.png"
+              alt="Want to improve performance or efficiency"
             />
-            <p>Are recovering from <br /> injury or surgery</p>
+            <p>Want to improve performance <br /> or efficiency</p>
           </div>
           <div class="for_you_item row">
             <img
-              src="/assets/img/physio_foryou3.png"
-              alt="Feel limited in movement"
+              src="/assets/img/golf_foryou3.png"
+              alt="Want structured training beyond technique
+"
             />
-            <p>Feel limited in <br /> movement</p>
+            <p>Want structured training <br /> beyond technique</p>
           </div>
         </div>
       </div>
@@ -53,10 +53,10 @@ import { whatsapp_href } from "../site_config.js";
     <div class="section_content pad col">
       <div class="breadcrumb">
         Our Services >
-        <span class="orange">Physiotherapy</span>
+        <span class="orange">Sports & Golf Performance</span>
       </div>
       <div class="service_listing">
-        {physiotherapy.map((item) => <ServiceCard info={item} />)}
+        {sports_golf.map((item) => <ServiceCard info={item} />)}
       </div>
     </div>
   </section>

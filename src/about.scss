@@ -130,7 +130,7 @@ $carousel-width: 2500px;
     .p_card {
       text-align: center;
       padding: 0 2rem;
-      border-right: 1px solid #353434;
+      z-index: 2;
 
       img {
         width: 3.5rem;
@@ -147,6 +147,15 @@ $carousel-width: 2500px;
 
       &:last-child {
         border: none;
+      }
+    }
+
+    .arrow {
+      width: 1rem;
+      justify-content: center;
+      z-index: 1;
+      img {
+        min-width: 8rem;
       }
     }
   }
@@ -407,7 +416,6 @@ $carousel-width: 2500px;
       .p_card {
         border: none;
         width: 100%;
-        border-bottom: 1px solid #353434;
         padding: 2rem 0;
         position: relative;
         padding-left: 8rem;
@@ -419,6 +427,15 @@ $carousel-width: 2500px;
           left: 2rem;
           top: 50%;
           translate: 0 -50%;
+        }
+      }
+      .arrow {
+        width: 100%;
+        align-items: flex-end;
+        height: 2rem;
+        img {
+          rotate: 135deg;
+          margin-left: auto;
         }
       }
     }

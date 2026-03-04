@@ -29,6 +29,14 @@
   align-items: flex-start;
 }
 
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+  opacity: 0 !important;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
 $max_width: 1440px;
 $accent-color: #f37521;
 $grey: #262626;
@@ -117,6 +125,9 @@ html {
       margin-right: 0.5rem;
       margin-top: 0.1rem;
     }
+    .dropdown {
+      transition: 0.2s;
+    }
 
     .content-wrapper {
       display: grid;
@@ -132,6 +143,9 @@ html {
     }
 
     &:hover {
+      .dropdown {
+        rotate: 180deg;
+      }
       .content-wrapper {
         grid-template-rows: 1fr;
       }
@@ -415,11 +429,19 @@ h5 {
   .bg_video {
     position: absolute;
     left: 50%;
-    translate: -50% 0;
-    top: 0;
+    translate: -50% -50%;
+    top: 50%;
     width: 1920px;
     z-index: 1;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: bottom;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15% 85%,
+      transparent
+    );
+    mask-repeat: no-repeat;
   }
 
   &::after {
@@ -431,7 +453,7 @@ h5 {
     width: 100%;
     height: 100%;
     width: 1920px;
-    background: radial-gradient(ellipse at top, transparent, $grey 70%);
+    background: linear-gradient(transparent, $grey);
     pointer-events: none;
     z-index: 2;
   }
@@ -532,27 +554,29 @@ h5 {
 
   .section_content {
     position: relative;
-    align-items: flex-end;
+    align-items: flex-start;
+    justify-content: center;
+    gap:3rem;
 
     & > * {
       z-index: 2;
     }
 
     .section_title {
-      text-align: right;
-      align-items: flex-end;
+      text-align: left;
+      align-items: flex-start;
       padding: 3rem;
-      margin-top: 20rem;
     }
 
     .prompts {
-      align-items: flex-end;
-      padding-right: 3rem;
+      align-items: flex-start;
       position: relative;
+      padding-right: 2rem;
     }
 
     .prompt_card {
       grid-area: 1 / 1;
+      width:30rem;
       // background-color: #303030;
       background-color: black;
       border-radius: 0.5rem;
@@ -597,7 +621,6 @@ h5 {
     }
 
     .active_prompt {
-      width: 30rem !important;
       padding: 1rem 2rem 3rem 10rem;
       background-color: black;
 
@@ -615,14 +638,17 @@ h5 {
       }
     }
 
-    .bg,
-    .bg2 {
+    .bg {
+      content: "";
       position: absolute;
-      left: 50%;
       top: 50%;
+      left: 50%;
       translate: -50% -50%;
-      width: 140%;
+      width: 150vw;
+      height: 125%;
+      background:linear-gradient(#FCF6E6,#D3C9BD);
       z-index: 1;
+      transform: perspective(1000px) rotateY(-10deg);
     }
 
     .model {
@@ -956,6 +982,21 @@ dialog::backdrop {
   }
 }
 
+ .contact_footer {
+    margin-bottom: 3rem;
+    background-image: url("/assets/img/footer_bg.webp");
+    background-size: cover;
+    background-position: center;
+    height: 18rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    a {
+      color: white;
+    }
+  }
+
 .footer {
   width: 100%;
   margin-top: 0;
@@ -1000,20 +1041,7 @@ dialog::backdrop {
     }
   }
 
-  .contact_footer {
-    margin-bottom: 3rem;
-    background-image: url("/assets/img/footer_bg.webp");
-    background-size: cover;
-    background-position: center;
-    height: 18rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    a {
-      color: white;
-    }
-  }
+ 
 
   footer {
     justify-content: space-between;
@@ -1070,13 +1098,16 @@ dialog::backdrop {
     }
   }
 
-  .footer {
-    .contact_footer {
+  .contact_footer {
       h1 {
         font-size: 2rem;
       }
+      h2{
+        font-size: 1.5rem;
+        width: 90%;
+      }
     }
-  }
+
 }
 
 @media screen and (max-width: 950px) {
@@ -1087,21 +1118,9 @@ dialog::backdrop {
 
         h1 {
           font-size: 1.5rem;
-
-          .grey {
-            color: $latte;
-          }
         }
       }
-
-      .model {
-        width: 75vw;
-        margin-left: -24vw;
-      }
-
-      .bg {
-        height: 60vw;
-      }
+   
     }
   }
 
@@ -1150,6 +1169,33 @@ dialog::backdrop {
     }
   }
 
+  .integrated {
+    .section_content {
+      margin: 0;
+      flex-direction: column;
+      align-items: center;
+      .section_title {
+        align-items: center;
+
+        h1 {
+          font-size: 3rem;
+          text-align: center;
+        }
+      }
+      .prompts{
+        align-items: center;
+        padding:0;
+      }
+    }
+
+    .scroll_down {
+      position: absolute;
+      left: 45%;
+      top: 103%;
+      bottom: auto;
+    }
+  }
+
   dialog {
     .close_modal {
       color: white;
@@ -1176,27 +1222,7 @@ dialog::backdrop {
     font-size: 2.75vw;
   }
 
-  .integrated {
-    .section_content {
-      margin: 0;
-
-      .section_title {
-        align-items: center;
-
-        h1 {
-          font-size: 3rem;
-          text-align: center;
-        }
-      }
-    }
-
-    .scroll_down {
-      position: absolute;
-      left: 45%;
-      top: 103%;
-      bottom: auto;
-    }
-  }
+  
 
   .how_we_help {
     .section_content {

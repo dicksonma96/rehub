@@ -28,14 +28,13 @@ import { whatsapp_href } from "../site_config";
     </div>
     <video
       class="bg_video"
-      controls
       poster="assets/img/banner.webp"
       muted
       playsinline
       autoplay
       loop
     >
-      <source src="assets/video/banner.MP4" type="video/mp4" />
+      <source src="assets/video/banner.mp4" type="video/mp4" />
     </video>
     <img src="" alt="" />
   </section>
@@ -64,8 +63,8 @@ import { whatsapp_href } from "../site_config";
           </div>
         </div>
         <img src="assets/img/how1.webp" alt="" />
-        <video src="assets/video/how1.mp4" muted playsinline webkit-playsinline
-        ></video>
+        <!-- <video src="assets/video/how1.mp4" muted playsinline webkit-playsinline
+        ></video> -->
       </div>
       <div class="help_card row">
         <div class="hover col">
@@ -81,8 +80,8 @@ import { whatsapp_href } from "../site_config";
           </div>
         </div>
         <img src="assets/img/how2.webp" alt="" />
-        <video src="assets/video/how2.mp4" muted playsinline webkit-playsinline
-        ></video>
+        <!-- <video src="assets/video/how2.mp4" muted playsinline webkit-playsinline
+        ></video> -->
       </div>
       <div class="help_card row">
         <div class="hover col">
@@ -97,11 +96,11 @@ import { whatsapp_href } from "../site_config";
             </div>
           </div>
         </div>
-        <img src="assets/img/how4.webp" alt="" />
-        <video src="assets/video/how4.mp4" muted playsinline webkit-playsinline
-        ></video>
+        <img src="assets/img/how3.webp" alt="" />
+        <!-- <video src="assets/video/how4.mp4" muted playsinline webkit-playsinline
+        ></video> -->
       </div>
-      <div class="help_card row">
+      <!-- <div class="help_card row">
         <div class="hover col">
           <h3 class="latte">Movement Assessments</h3>
           <div class="hover_wrapper">
@@ -114,17 +113,13 @@ import { whatsapp_href } from "../site_config";
             </div>
           </div>
         </div>
-        <img src="assets/img/how3.webp" alt="" />
-        <video src="assets/video/how3.mp4" muted playsinline webkit-playsinline
-        ></video>
-      </div>
+        <img src="assets/img/how4.webp" alt="" />
+      </div> -->
     </div>
   </section>
 
   <section class="integrated colc">
-    <div class="section_content col">
-      <img class="model" src="assets/img/integrated_model.webp" alt="" />
-
+    <div class="section_content row">
       <div class="section_title col">
         <h1>
           <span class="grey" data-aos="flip-up">INTEGRATED</span>
@@ -137,7 +132,7 @@ import { whatsapp_href } from "../site_config";
         <a href={whatsapp_href()} class="cta_btn">Book An Appointment</a>
       </div>
 
-      <div class="prompts">
+      <div class="prompts col">
         <div data-aos="fade-up" class="prompt_card active_prompt col">
           <img src="assets/img/integrated1.webp" alt="" />
           <strong><span class="latte">Seamless</span> Integration</strong>
@@ -166,8 +161,7 @@ import { whatsapp_href } from "../site_config";
           <span class="material-symbols-outlined"> keyboard_arrow_down </span>
         </div>
       </div>
-      <img class="bg2" src="assets/img/integrated_bg2.webp" alt="" />
-      <img class="bg" src="assets/img/integrated_bg.webp" alt="" />
+      <div class="bg"></div>
     </div>
   </section>
 
@@ -314,6 +308,14 @@ import { whatsapp_href } from "../site_config";
   </section>
 
   <Contact />
+
+  <div class="section_content contact_footer colc">
+    <h1 data-aos="fade-right">
+      PAIN FREE. PEAK PERFORMANCE.<br />
+      <span class="orange"> Your Journey Starts Here.</span>
+    </h1>
+    <a href={whatsapp_href()} class="cta_btn" target="_blank">Book A Session</a>
+  </div>
 </MainLayout>
 
 <script>

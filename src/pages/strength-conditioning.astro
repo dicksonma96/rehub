@@ -3,9 +3,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 import "../service.scss";
 import ServiceCard from "../components/ServiceCard.astro";
 import { strength_training } from "../services";
+import { whatsapp_href } from "../site_config.js";
 ---
 
-<MainLayout>
+<MainLayout title="Strength & Conditioning">
   <section class="service_banner strength_banner pad">
     <div class="section_content col">
       <div class="col">
@@ -16,11 +17,35 @@ import { strength_training } from "../services";
         </h1>
         <br />
         <p>
-          "Our strength training programs are designed to build power, improve
-          mobility, and enhance overall physical performance—whether you're
-          recovering from injury, boosting athletic ability, or working toward
-          personal fitness goals."
+          "Our strength and conditioning programs are designed to help you train
+          safely and effectively, whether you’re returning from injury or
+          building strength to support daily life and sport."
         </p>
+        <div class="tag">THIS IS FOR YOU IF YOU</div>
+        <div class="row for_you">
+          <div class="for_you_item row">
+            <img
+              src="/assets/img/strength_foryou1.png"
+              alt="Are returning to training after injury or rehab"
+            />
+            <p>Are returning to training <br /> after injury or rehab</p>
+          </div>
+          <div class="for_you_item row">
+            <img
+              src="/assets/img/strength_foryou2.png"
+              alt="Want to build strength without recurring pain"
+            />
+            <p>Want to build strength <br /> without recurring pain</p>
+          </div>
+          <div class="for_you_item row">
+            <img
+              src="/assets/img/strength_foryou3.png"
+              alt="Want to reduce injury risk and move with confidence
+"
+            />
+            <p>Want to reduce injury risk <br /> and move with confidence</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -35,4 +60,11 @@ import { strength_training } from "../services";
       </div>
     </div>
   </section>
+  <div class="section_content contact_footer colc">
+    <h1 data-aos="fade-right">NOT SURE WHERE TO START?</h1>
+    <h2 class="orange">
+      Book an assessment and let our team guide you to the right approach
+    </h2>
+    <a href={whatsapp_href()} class="cta_btn" target="_blank">Book A Session</a>
+  </div>
 </MainLayout>

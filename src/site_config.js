@@ -5,3 +5,4 @@ export const whatsapp_href = (message) => {
   encodeURIComponent(encodeMsg);
   return `whatsapp://send?phone=60176158116&text=${encodeMsg}`;
 };
+
