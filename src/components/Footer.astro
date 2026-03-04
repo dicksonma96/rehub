@@ -38,11 +38,33 @@ const { contact_footer_info } = Astro.props;
 
     <div class="info_col col">
       <strong class="orange">Our Locations</strong>
-      <p>
+      <a
+        href="https://waze.com/ul?q=Centrepoint+Bandar+Utama&ll=3.1467,101.6156&navigate=yes"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Lot S107 & S108, Second Floor, <br /> Centrepoint Bandar Utama, <br />3,
         Lebuh Bandar Utama,
         <br />Bandar Utama, Petaling Jaya, <br />47800, Selangor
-      </p>
+      </a>
+      <div class="map_links row">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Centrepoint+Bandar+Utama,+Lebuh+Bandar+Utama,+Petaling+Jaya,+47800+Selangor"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="map_link row"
+        >
+          <img src="/assets/img/google_map.png" alt="" />
+        </a>
+        <a
+          href="https://waze.com/ul?q=Centrepoint+Bandar+Utama&ll=3.1467,101.6156&navigate=yes"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="map_link row"
+        >
+          <img src="/assets/img/waze.png" alt="" />
+        </a>
+      </div>
     </div>
 
     <div class="info_col col">

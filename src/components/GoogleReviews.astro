@@ -39,7 +39,7 @@ import "@splidejs/splide/css";
 </section>
 
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPFmRhlvRGOnI6s4Y51KQvhSOTpzB0hSI&libraries=places"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO8CgWh-plmnLdjrE4pjAJ6Cs9dMq1vIg&libraries=places"
   async
   defer></script>
 <script>
@@ -55,7 +55,7 @@ import "@splidejs/splide/css";
   function initMap() {
     // Initialize service (using a dummy div as it doesn't need a visible map)
     service = new google.maps.places.PlacesService(
-      document.createElement("div")
+      document.createElement("div"),
     );
     fetchReviews(); // Initial call
   }
@@ -100,7 +100,7 @@ import "@splidejs/splide/css";
       } else {
         console.error(
           "An unknown error occurred with Google Places API:",
-          status
+          status,
         );
         errorMsg =
           "An unknown error occurred while fetching reviews. Please try again later.";
@@ -112,7 +112,7 @@ import "@splidejs/splide/css";
   function populateError(message) {
     loading_div.style.display = "none";
     const error_message = document.querySelector(
-      ".review_error .error_message"
+      ".review_error .error_message",
     );
     error_message.innerText = message;
     review_error.style.display = "flex";

@@ -24,7 +24,7 @@ $latte: #fcf6e6;
     z-index: 1;
   }
 
-  & > * {
+  &>* {
     position: relative;
     z-index: 2;
   }
@@ -118,6 +118,7 @@ $carousel-width: 2500px;
 .performance {
   margin-top: 0;
   margin-bottom: 3rem;
+  text-align: center;
 
   .section_content {
     gap: 3rem;
@@ -154,6 +155,7 @@ $carousel-width: 2500px;
       width: 1rem;
       justify-content: center;
       z-index: 1;
+
       img {
         min-width: 8rem;
       }
@@ -370,6 +372,7 @@ $carousel-width: 2500px;
     h1 {
       font-size: 2.75rem;
     }
+
     .grids {
       flex-direction: column;
 
@@ -405,37 +408,27 @@ $carousel-width: 2500px;
       }
     }
   }
-}
 
-@media screen and (max-width: 600px) {
   .performance {
+    br {
+      display: none;
+    }
+
     .p_cards {
       flex-direction: column;
       width: 100%;
 
-      .p_card {
-        border: none;
-        width: 100%;
-        padding: 2rem 0;
-        position: relative;
-        padding-left: 8rem;
-        align-items: flex-start;
-        text-align: left;
 
-        img {
-          position: absolute;
-          left: 2rem;
-          top: 50%;
-          translate: 0 -50%;
-        }
-      }
+
       .arrow {
         width: 100%;
         align-items: flex-end;
         height: 2rem;
+        margin: 6rem 0 3rem;
+
         img {
-          rotate: 135deg;
-          margin-left: auto;
+          rotate: 90deg;
+          max-width: 3rem;
         }
       }
     }
