@@ -5,7 +5,7 @@
 <section class="contact_form">
   <div id="contact" class="anchor"></div>
   <div class="section_content colc pad">
-    <h5 data-aos="flip-up">"Book your first appointment today!"</h5>
+    <h5 data-aos="flip-up">Book your first appointment today!</h5>
     <h1 data-aos="fade-right">
       <span class="latte">GET IN</span>
       <span class="orange">TOUCH</span>
@@ -53,16 +53,16 @@
     if (submiting) return;
     submiting = true;
     const contactForm = document.querySelector(
-      "#contact_form"
+      "#contact_form",
     ) as HTMLFormElement;
     const contactSubmitBtn = document.querySelector(
-      "#contact_submit"
+      "#contact_submit",
     ) as HTMLButtonElement;
     const successMessage = document.querySelector(
-      ".submit_success"
+      ".submit_success",
     ) as HTMLElement;
     const errorMessage = document.querySelector(
-      ".submit_failed"
+      ".submit_failed",
     ) as HTMLElement;
 
     if (!contactForm) return;
