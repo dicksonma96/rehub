@@ -49,6 +49,7 @@ html {
   color: white;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  font-size: 18px;
 }
 
 .loader {
@@ -1064,7 +1065,7 @@ dialog::backdrop {
 
   footer {
     justify-content: space-between;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     position: relative;
     margin-top: 2rem;
 
