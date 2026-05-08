@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://re-hub.com.my/sitemap-index.xml
