@@ -27,14 +27,9 @@
       <textarea name="your-message" rows="5" placeholder="Your Message" required
       ></textarea>
 
-      <script src="https://www.google.com/recaptcha/api.js" async defer
-      ></script>
-
       <button
         id="contact_submit"
-        class="g-recaptcha cta_btn"
-        data-sitekey="6LdS-kIsAAAAAH-dHHTqEK3hOO2buhjuRz7_3Ehu"
-        data-callback="onSubmit"
+        class="cta_btn"
         type="submit">Submit</button
       >
     </form>
@@ -42,76 +37,61 @@
 </section>
 
 <script>
-  declare global {
-    interface Window {
-      onSubmit: (token: string) => void;
-    }
-  }
-  let submiting = false;
-  // 1. Make the function global so Google can find it
-  window.onSubmit = function (token) {
-    if (submiting) return;
-    submiting = true;
-    const contactForm = document.querySelector(
-      "#contact_form",
-    ) as HTMLFormElement;
-    const contactSubmitBtn = document.querySelector(
-      "#contact_submit",
-    ) as HTMLButtonElement;
-    const successMessage = document.querySelector(
-      ".submit_success",
-    ) as HTMLElement;
-    const errorMessage = document.querySelector(
-      ".submit_failed",
-    ) as HTMLElement;
+  let isSubmitting = false;
 
-    if (!contactForm) return;
+  const contactForm = document.querySelector("#contact_form") as HTMLFormElement;
+  const contactSubmitBtn = document.querySelector("#contact_submit") as HTMLButtonElement;
+  const successMessage = document.querySelector(".submit_success") as HTMLElement;
+  const errorMessage = document.querySelector(".submit_failed") as HTMLElement;
 
-    // UI Feedback
-    successMessage.style.display = "none";
-    errorMessage.style.display = "none";
-    contactSubmitBtn.disabled = true;
-    contactSubmitBtn.innerText = "Sending...";
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (isSubmitting) return;
 
-    const formId = "10474";
-    const formData = new FormData(contactForm);
+      isSubmitting = true;
 
-    // 2. Append reCAPTCHA token and mandatory CF7 tags
-    formData.append("_wpcf7_recaptcha_response", token); // Proof for Google
-    formData.append("_wpcf7", formId); // Form ID
-    formData.append("_wpcf7_unit_tag", `wpcf7-f${formId}-p1-o1`); // Unit tag
-    formData.append("_wpcf7_version", "6.0.6"); // Plugin version
+      // UI Feedback
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.innerText = "Sending...";
 
-    const endpoint = `https://re-hub.com.my/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`;
+      const formId = "10474";
+      const formData = new FormData(contactForm);
 
-    fetch(endpoint, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
+      // Append mandatory CF7 tags (reCAPTCHA removed)
+      formData.append("_wpcf7", formId); // Form ID
+      formData.append("_wpcf7_unit_tag", `wpcf7-f${formId}-p1-o1`); // Unit tag
+      formData.append("_wpcf7_version", "6.0.6"); // Plugin version
+
+      const endpoint = `https://re-hub.com.my/blogs/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`;
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+
         if (data.status === "mail_sent") {
           contactForm.reset();
           successMessage.style.display = "flex";
         } else {
           console.log("Validation/Spam Errors:", data.invalid_fields);
           errorMessage.style.display = "flex";
-          // If spam is suspected, CF7 will return a status of 'spam'
           if (data.status === "spam") {
             errorMessage.innerText = "Spam detected. Please try again.";
           }
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Submit Error:", error);
         alert("Something went wrong. Please try again later.");
-      })
-      .finally(() => {
+      } finally {
         contactSubmitBtn.disabled = false;
         contactSubmitBtn.innerText = "Submit";
-        // Reset reCAPTCHA so the user can try again if there was an error
-        grecaptcha.reset();
-        submiting = false;
-      });
-  };
+        isSubmitting = false;
+      }
+    });
+  }
 </script>
