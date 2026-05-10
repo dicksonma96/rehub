@@ -1,0 +1,42 @@
+---
+---
+
+<dialog id="popup-modal" class="popup_modal">
+  <div class="popup_content">
+    <button id="close-popup" class="close_btn">&times;</button>
+    <a id="popup-link" href="#" target="_blank">
+      <img id="popup-img" src="" alt="Event Popup" />
+    </a>
+  </div>
+</dialog>
+
+<script>
+  const modal = document.getElementById('popup-modal') as HTMLDialogElement;
+  const closeBtn = document.getElementById('close-popup');
+  const popupImg = document.getElementById('popup-img') as HTMLImageElement;
+  const popupLink = document.getElementById('popup-link') as HTMLAnchorElement;
+
+  if (modal && closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.close();
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.close();
+      }
+    });
+
+    // Listen for global event to show popup
+    window.addEventListener('show-popup', (e: any) => {
+      const { img_url, redirect_url } = e.detail;
+      if (popupImg && img_url) {
+        popupImg.src = img_url;
+        if (popupLink) {
+          popupLink.href = redirect_url || '#';
+        }
+        modal.showModal();
+      }
+    });
+  }
+</script>

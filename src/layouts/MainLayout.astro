@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppBtn from "../components/WhatAppButton.astro";
+import Popup from "../components/Popup.astro";
 import "../style.scss";
 const { title = "Default Title", contact_footer_info } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -12,29 +13,71 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title === "Default Title" ? "Re-Hub | Where Physio Meets Performance" : `${title} | Re-Hub`}</title>
-    <meta name="description" content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof. We help all ages move better, recover faster, and build lasting resilience." />
+    <title>
+      {
+        title === "Default Title"
+          ? "Re-Hub | Where Physio Meets Performance"
+          : `${title} | Re-Hub`
+      }
+    </title>
+    <meta
+      name="description"
+      content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof. We help all ages move better, recover faster, and build lasting resilience."
+    />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title === "Default Title" ? "Re-Hub | Where Physio Meets Performance" : title} />
-    <meta property="og:description" content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof. We help all ages move better, recover faster, and build lasting resilience." />
+    <meta
+      property="og:title"
+      content={title === "Default Title"
+        ? "Re-Hub | Where Physio Meets Performance"
+        : title}
+    />
+    <meta
+      property="og:description"
+      content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof. We help all ages move better, recover faster, and build lasting resilience."
+    />
     <meta property="og:image" content={new URL("/opengraph.jpg", Astro.url)} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title === "Default Title" ? "Re-Hub | Where Physio Meets Performance" : title} />
-    <meta property="twitter:description" content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof." />
-    <meta property="twitter:image" content={new URL("/opengraph.jpg", Astro.url)} />
+    <meta
+      property="twitter:title"
+      content={title === "Default Title"
+        ? "Re-Hub | Where Physio Meets Performance"
+        : title}
+    />
+    <meta
+      property="twitter:description"
+      content="Discover our physiotherapy and fitness centre combining rehab and functional training under one roof."
+    />
+    <meta
+      property="twitter:image"
+      content={new URL("/opengraph.jpg", Astro.url)}
+    />
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href={base + "/assets/apple-touch-icon.png"} />
-    <link rel="icon" type="image/png" sizes="32x32" href={base + "/assets/favicon-32x32.png"} />
-    <link rel="icon" type="image/png" sizes="16x16" href={base + "/assets/favicon-16x16.png"} />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={base + "/assets/apple-touch-icon.png"}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={base + "/assets/favicon-32x32.png"}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href={base + "/assets/favicon-16x16.png"}
+    />
     <link rel="manifest" href={base + "/assets/site.webmanifest"} />
     <link rel="stylesheet" href={base + "/aos.css"} />
 
@@ -81,13 +124,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         ]
       }
     </script>
-
-  <body>
+  </head><body>
     <div class="container col">
       <Header />
       <slot />
       <Footer contact_footer_info={contact_footer_info} />
       <WhatsAppBtn />
+      <!-- <Popup /> -->
     </div>
   </body>
   <script>
@@ -126,7 +169,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     })(window, document, "script", "dataLayer", "GTM-5VQZGQS7");
   </script>
   <!-- End Google Tag Manager -->
-
   <!-- Google Tag Manager (noscript) -->
   <noscript
     ><iframe
@@ -136,4 +178,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       style="display:none;visibility:hidden"></iframe></noscript
   >
   <!-- End Google Tag Manager (noscript) -->
+
+  <script>
+    async function initGlobalFeatures() {
+      try {
+        const response = await fetch(
+          import.meta.env.PUBLIC_GET_EVENT_APPSCRIPT,
+        );
+        const data: any = await response.json();
+        console.log(data);
+        if (data) {
+          // 1. Dispatch event for Event Page if it exists
+          window.dispatchEvent(
+            new CustomEvent("event-data-ready", { detail: data }),
+          );
+
+          // 2. Handle Popup (shown on every page if active)
+          if (data.popup && data.popup.active) {
+            // Check if popup has been shown in this session (optional, but usually good)
+            // For now, just show it as requested
+            window.dispatchEvent(
+              new CustomEvent("show-popup", {
+                detail: {
+                  img_url: data.popup.img_url,
+                  redirect_url: data.popup.redirect_url,
+                },
+              }),
+            );
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching event data:", err);
+      }
+    }
+
+    // Run on every page load
+    initGlobalFeatures();
+  </script>
 </html>

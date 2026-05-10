@@ -958,35 +958,35 @@ dialog::backdrop {
     color: #ff4c4c;
     background-color: rgba(255, 0, 0, 0.1);
   }
+}
 
-  form {
+.form {
+  width: 100%;
+  max-width: 50rem;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+  gap: 1rem;
+  align-items: flex-end;
+
+  input,
+  textarea {
     width: 100%;
-    max-width: 50rem;
-    margin-top: 2rem;
-    margin-bottom: 10rem;
-    gap: 1rem;
-    align-items: flex-end;
+    background-color: #1e1e1e;
+    border: none;
+    padding: 1rem;
+    color: white;
+    font-size: 16px;
+    resize: vertical;
+    transition: 0.2s;
 
-    input,
-    textarea {
-      width: 100%;
-      background-color: #1e1e1e;
-      border: none;
-      padding: 1rem;
-      color: white;
-      font-size: 16px;
-      resize: vertical;
-      transition: 0.2s;
-
-      &:focus {
-        outline: none;
-        background-color: black;
-      }
+    &:focus {
+      outline: none;
+      background-color: black;
     }
+  }
 
-    textarea {
-      min-height: 10rem;
-    }
+  textarea {
+    min-height: 10rem;
   }
 }
 
@@ -1286,3 +1286,51 @@ dialog::backdrop {
     }
   }
 }
+
+.popup_modal {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: auto;
+  z-index: 10000;
+  outline: none;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+  }
+
+  .popup_content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 1rem;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .close_btn {
+      position: absolute;
+      top: -3rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
