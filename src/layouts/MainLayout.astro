@@ -130,7 +130,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       <slot />
       <Footer contact_footer_info={contact_footer_info} />
       <WhatsAppBtn />
-      <!-- <Popup /> -->
+      <Popup />
     </div>
   </body>
   <script>
@@ -182,29 +182,37 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <script>
     async function initGlobalFeatures() {
       try {
-        const response = await fetch(
-          import.meta.env.PUBLIC_GET_EVENT_APPSCRIPT,
-        );
-        const data: any = await response.json();
-        console.log(data);
+        const cachedData = sessionStorage.getItem("globalEventData");
+        let data: any;
+
+        if (cachedData) {
+          data = JSON.parse(cachedData);
+        } else {
+          const response = await fetch(
+            import.meta.env.PUBLIC_GET_EVENT_APPSCRIPT,
+          );
+          data = await response.json();
+          sessionStorage.setItem("globalEventData", JSON.stringify(data));
+        }
+
         if (data) {
           // 1. Dispatch event for Event Page if it exists
           window.dispatchEvent(
             new CustomEvent("event-data-ready", { detail: data }),
           );
-
+          console.log(data);
           // 2. Handle Popup (shown on every page if active)
           if (data.popup && data.popup.active) {
-            // Check if popup has been shown in this session (optional, but usually good)
-            // For now, just show it as requested
-            window.dispatchEvent(
-              new CustomEvent("show-popup", {
-                detail: {
-                  img_url: data.popup.img_url,
-                  redirect_url: data.popup.redirect_url,
-                },
-              }),
-            );
+            if (!document.cookie.includes("modalClose=true")) {
+              window.dispatchEvent(
+                new CustomEvent("show-popup", {
+                  detail: {
+                    img_url: data.popup.img_url,
+                    redirect_url: data.popup.redirect_url,
+                  },
+                }),
+              );
+            }
           }
         }
       } catch (err) {

@@ -972,7 +972,8 @@ dialog::backdrop {
   textarea {
     width: 100%;
     background-color: #1e1e1e;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
     padding: 1rem;
     color: white;
     font-size: 16px;
@@ -1243,6 +1244,30 @@ dialog::backdrop {
   }
 }
 
+.event_registration {
+  padding-block: 3rem;
+
+  .event_hero_banner {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    max-width: 1000px;
+    margin-bottom: 5rem;
+  }
+
+  .hero_loader {
+    height: 30vh;
+    margin-bottom: 5rem;
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    justify-content: center;
+  }
+}
+
 @media screen and (max-width: 600px) {
 
   body,
@@ -1333,4 +1358,4 @@ dialog::backdrop {
       }
     }
   }
-}
+}

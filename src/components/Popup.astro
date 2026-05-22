@@ -17,13 +17,21 @@
   const popupLink = document.getElementById('popup-link') as HTMLAnchorElement;
 
   if (modal && closeBtn) {
+    const setModalCloseCookie = () => {
+      const d = new Date();
+      d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+      document.cookie = "modalClose=true;expires=" + d.toUTCString() + ";path=/";
+    };
+
     closeBtn.addEventListener('click', () => {
       modal.close();
+      setModalCloseCookie();
     });
 
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.close();
+        setModalCloseCookie();
       }
     });
 
