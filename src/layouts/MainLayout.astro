@@ -200,7 +200,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           window.dispatchEvent(
             new CustomEvent("event-data-ready", { detail: data }),
           );
-          console.log(data);
           // 2. Handle Popup (shown on every page if active)
           if (data.popup && data.popup.active) {
             if (!document.cookie.includes("modalClose=true")) {

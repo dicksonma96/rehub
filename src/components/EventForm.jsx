@@ -342,14 +342,17 @@ function EventRegistration() {
 
 
     return <>
-        <img className="event_hero_banner" src={eventData.event_img} alt={eventData.event_name} />
+        <img onClick={()=>{
+            if(eventData.popup.redirect_url)
+            window.open(eventData.popup.redirect_url,'_blank');
+        }} className="event_hero_banner" src={eventData.event_img} alt={eventData.event_name} />
 
-        <h5 data-aos="flip-up">Join our upcoming events</h5>
+        {/* <h5 data-aos="flip-up">Join our upcoming events</h5>
         <h1 style={{ textAlign: "center" }} data-aos="fade-right">
             <span className="latte">EVENT</span>
-            <span className="orange">REGISTRATION</span>
+            <span className="orange"> REGISTRATION</span>
         </h1>
-        <EventForm />
+        <EventForm /> */}
     </>;
 }
 
