@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <dialog id="popup-modal" class="popup_modal">
@@ -11,24 +12,25 @@
 </dialog>
 
 <script>
-  const modal = document.getElementById('popup-modal') as HTMLDialogElement;
-  const closeBtn = document.getElementById('close-popup');
-  const popupImg = document.getElementById('popup-img') as HTMLImageElement;
-  const popupLink = document.getElementById('popup-link') as HTMLAnchorElement;
+  const modal = document.getElementById("popup-modal") as HTMLDialogElement;
+  const closeBtn = document.getElementById("close-popup");
+  const popupImg = document.getElementById("popup-img") as HTMLImageElement;
+  const popupLink = document.getElementById("popup-link") as HTMLAnchorElement;
 
   if (modal && closeBtn) {
     const setModalCloseCookie = () => {
       const d = new Date();
-      d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-      document.cookie = "modalClose=true;expires=" + d.toUTCString() + ";path=/";
+      d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+      document.cookie =
+        "modalClose=true;expires=" + d.toUTCString() + ";path=/";
     };
 
-    closeBtn.addEventListener('click', () => {
+    closeBtn.addEventListener("click", () => {
       modal.close();
       setModalCloseCookie();
     });
 
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener("click", (e) => {
       if (e.target === modal) {
         modal.close();
         setModalCloseCookie();
@@ -36,12 +38,12 @@
     });
 
     // Listen for global event to show popup
-    window.addEventListener('show-popup', (e: any) => {
+    window.addEventListener("show-popup", (e: any) => {
       const { img_url, redirect_url } = e.detail;
       if (popupImg && img_url) {
         popupImg.src = img_url;
         if (popupLink) {
-          popupLink.href = redirect_url || '#';
+          popupLink.href = redirect_url || "#";
         }
         modal.showModal();
       }

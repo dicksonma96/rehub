@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./EventForm.scss";
+import { whatsapp_href } from "../site_config";
 
 const fields = [
     { name: "full_name", label: "Full Name", placeholder: "Enter your full name", type: "text", required: true },
@@ -272,6 +273,11 @@ function EventRegistration() {
     const [eventData, setEventData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
+    function handleJoin(){
+if(eventData.popup.redirect_url)
+            window.open(eventData.popup.redirect_url,'_blank');
+    }
+
     useEffect(() => {
         const handler = (e) => {
             setEventData(e.detail);
@@ -341,11 +347,12 @@ function EventRegistration() {
 
 
 
-    return <>
-        <img onClick={()=>{
-            if(eventData.popup.redirect_url)
-            window.open(eventData.popup.redirect_url,'_blank');
-        }} className="event_hero_banner" src={eventData.event_img} alt={eventData.event_name} />
+    return <> 
+    {
+        eventData.event_img.map((img,index)=>{
+            return <img key={index} className="event_hero_banner" src={img} alt={eventData.event_name} />
+        })
+    }
 
         {/* <h5 data-aos="flip-up">Join our upcoming events</h5>
         <h1 style={{ textAlign: "center" }} data-aos="fade-right">
@@ -353,6 +360,14 @@ function EventRegistration() {
             <span className="orange"> REGISTRATION</span>
         </h1>
         <EventForm /> */}
+
+
+           <div class="section_content contact_footer colc" style={{marginTop:'5rem'}}>
+                <h1 data-aos="fade-right" style={{width:'80%',textWrap:'balance'}}>
+                 {eventData.event_name}
+                </h1>
+                <a href={eventData.join_link} class="cta_btn" target="_blank">Join Our Event Now</a>
+            </div>
     </>;
 }
 

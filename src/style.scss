@@ -1251,8 +1251,8 @@ dialog::backdrop {
     width: 100%;
     object-fit: cover;
     border-radius: 1rem;
-    max-width: 1000px;
-    margin-bottom: 5rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
   }
 
   .hero_loader {
@@ -1344,8 +1344,8 @@ dialog::backdrop {
 
     .close_btn {
       position: absolute;
-      top: -3rem;
       right: 0;
+      top:0;
       background: none;
       border: none;
       color: white;
