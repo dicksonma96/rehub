@@ -20,9 +20,10 @@
   if (modal && closeBtn) {
     const setModalCloseCookie = () => {
       const d = new Date();
-      d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+      d.setDate(d.getDate() + 1);
+      d.setHours(0, 0, 0, 0);
       document.cookie =
-        "modalClose=true;expires=" + d.toUTCString() + ";path=/";
+        "popupClosed=true;expires=" + d.toUTCString() + ";path=/";
     };
 
     closeBtn.addEventListener("click", () => {

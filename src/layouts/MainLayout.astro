@@ -202,7 +202,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           );
           // 2. Handle Popup (shown on every page if active)
           if (data.popup && data.popup.active) {
-            if (!document.cookie.includes("modalClose=true")) {
+            if (!document.cookie.includes("popupClosed=true")) {
               window.dispatchEvent(
                 new CustomEvent("show-popup", {
                   detail: {
